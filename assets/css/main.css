@@ -2964,7 +2964,7 @@ ul.icons.alt li .icon:before {
     background-color 0.2s ease-in-out,
     border-color 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 /* List */
@@ -3476,7 +3476,7 @@ body.is-preload #wrapper.fade-in:before {
   cursor: default;
   text-align: center;
   z-index: 1;
-  min-height: 100vh;
+  min-height: 60vh;
 }
 
 #intro input,
@@ -3638,7 +3638,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 @media screen and (max-width: 980px) {
   #intro {
     padding: 4rem 4rem 2rem 4rem;
-    min-height: 90vh;
+    min-height: 80vh;
   }
 
   #intro p br {
@@ -3653,7 +3653,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 @media screen and (max-width: 736px) {
   #intro {
     padding: 3rem 2rem 1rem 2rem;
-    min-height: 80vh;
+    min-height: 50vh;
   }
 
   #intro h1 {
@@ -4775,6 +4775,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 @media screen and (max-width: 980px) {
   #navPanelToggle {
     display: block;
+    font-size: 2.5rem;
   }
 }
 
@@ -4836,8 +4837,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
   border-bottom: 0;
   display: block;
   font-family: 'Source Sans Pro', Helvetica, sans-serif;
-  font-size: 1.2rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 0.075em;
   padding: 0.75rem 0;
