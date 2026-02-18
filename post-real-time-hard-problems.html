@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>The Hardest Problems in Real‑Time Front‑End Engineering — Ricardo Saumeth</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+  <div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="logo">Ricardo Saumeth</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="book.html">Book</a></li>
+        <li><a href="course.html">Course</a></li>
+        <li><a href="library.html">Real‑Time React</a></li>
+        <li class="active"><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="icons">
+        <li><a href="https://github.com/ricardosaumeth" class="icon brands fa-github"></a></li>
+        <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands fa-linkedin"></a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+
+      <section class="post">
+        <header class="major">
+          <span class="date">February 2026</span>
+          <h1>The Hardest Problems in Real‑Time Front‑End Engineering<br />
+          (and the patterns that actually work)</h1>
+        </header>
+
+        <p>Real‑time front‑end engineering looks simple from the outside:</p>
+        <p><em>“Just open a WebSocket and update the UI.”</em></p>
+
+        <p>But anyone who has built trading dashboards, crypto apps, or high‑frequency analytics knows the truth:</p>
+
+        <p><strong>Real‑time systems expose every weakness in your architecture.</strong></p>
+
+        <p>With 10 years as a senior front‑end engineer — and the last few focused entirely on real‑time UIs — these are the five hardest problems I’ve consistently faced, and the patterns that actually solve them.</p>
+
+        <hr />
+
+        <h2>1️⃣ High‑Frequency Updates That Kill Rendering Performance</h2>
+        <p>Real‑time streams can push thousands of updates per minute. If every update triggers a re-render, your UI collapses.</p>
+
+        <h3>Pattern that works: Selective subscriptions + memoized components</h3>
+        <ul>
+          <li>Subscribe only to the slice of state needed</li>
+          <li>Use selectors to avoid global re-renders</li>
+          <li>Memoize aggressively</li>
+          <li>Virtualize heavy lists</li>
+        </ul>
+
+        <p>This alone can cut re-renders by <strong>70–90%</strong>.</p>
+
+        <hr />
+
+        <h2>2️⃣ WebSocket Noise, Bursts, and Unstable Streams</h2>
+        <p>Market data arrives in bursts, out of order, duplicated, or incomplete.</p>
+
+        <h3>Pattern that works: A Data Normalizer layer</h3>
+        <ul>
+          <li>Clean and flatten payloads</li>
+          <li>Deduplicate updates</li>
+          <li>Apply domain logic</li>
+          <li>Aggregate bursts</li>
+          <li>Standardize formats</li>
+        </ul>
+
+        <p>This keeps your Redux/Zustand/Query layer predictable and stable.</p>
+
+        <hr />
+
+        <h2>3️⃣ Keeping the UI Responsive Under Heavy Load</h2>
+        <p>Charts, grids, and calculations all fight for the main thread.</p>
+
+        <h3>Pattern that works: Workload isolation</h3>
+        <ul>
+          <li>Move heavy work to Web Workers</li>
+          <li>Debounce non-critical updates</li>
+          <li>Batch state updates</li>
+        </ul>
+
+        <p>Responsiveness is a feature — treat it like one.</p>
+
+        <hr />
+
+        <h2>4️⃣ Managing State in a System That Never Stops Updating</h2>
+        <p>Traditional state management breaks down when updates never stop.</p>
+
+        <h3>Pattern that works: Hybrid state architecture</h3>
+        <ul>
+          <li>Client state for UI</li>
+          <li>Server‑controlled state via a BFF for real‑time domain data</li>
+          <li>Zustand/Redux for shared reactive state</li>
+          <li>Local component state for UI-only concerns</li>
+        </ul>
+
+        <p>Real‑time apps need multiple state layers, not one.</p>
+
+        <hr />
+
+        <h2>5️⃣ Rendering Large Data Structures Without Freezing the UI</h2>
+        <p>Order books, tickers, and time-series data grow fast.</p>
+
+        <h3>Pattern that works: Windowing + incremental rendering</h3>
+        <ul>
+          <li>Render only what’s visible</li>
+          <li>Virtualize tables</li>
+          <li>Incrementally update charts</li>
+          <li>Prune old data aggressively</li>
+        </ul>
+
+        <p>Real‑time UIs should behave like streaming apps, not spreadsheets.</p>
+
+        <hr />
+
+        <h2>Final Thought</h2>
+        <p>Real‑time front‑end engineering is where performance, architecture, and UX collide. It forces you to think like a systems engineer, not just a React developer.</p>
+
+        <p>If you’re building dashboards, trading tools, or anything with high‑frequency data, these patterns will save you hours of debugging and give your users a genuinely smooth experience.</p>
+
+        <p><strong>Written by Ricardo Saumeth<br />
+        Senior Front‑End Engineer | Real‑Time UI Specialist</strong></p>
+
+        <!-- Navigation Buttons -->
+        <ul class="actions special">
+          <li><a href="post-metrics-that-matter.html" class="button">Next Post →</a></li>
+          <li><a href="blog.html" class="button">Back to Blog</a></li>
+        </ul>
+
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <section class="split contact">
+        <section>
+          <h3>Email</h3>
+          <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
+        </section>
+        <section>
+          <h3>Links</h3>
+          <ul class="icons alt">
+            <li><a href="https://github.com/ricardosaumeth" class="icon brands alt fa-github"></a></li>
+            <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands alt fa-linkedin"></a></li>
+          </ul>
+        </section>
+      </section>
+    </footer>
+
+    <div id="copyright">
+      <ul>
+        <li>© 2026 Ricardo Saumeth</li>
+        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
