@@ -6,7 +6,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" />
+  </noscript>
 </head>
 
 <body class="is-preload">
@@ -44,8 +46,8 @@
           <h1>Memory‑Bounded Arrays<br />for Real‑Time Trading UIs</h1>
         </header>
 
-        <p>Real‑time applications behave very differently from typical web apps.  
-        A normal React app might fetch data once, store a few dozen items, and never grow beyond that.</p>
+        <p>Real‑time applications behave very differently from typical web apps.
+          A normal React app might fetch data once, store a few dozen items, and never grow beyond that.</p>
 
         <p>A real‑time trading UI is the opposite:</p>
 
@@ -65,8 +67,8 @@
           <li>8 hours → 576,000 updates</li>
         </ul>
 
-        <p>And that’s per currency pair.  
-        Track 10 pairs and you’re easily in the millions of objects.</p>
+        <p>And that’s per currency pair.
+          Track 10 pairs and you’re easily in the millions of objects.</p>
 
         <p>At that point:</p>
 
@@ -124,8 +126,8 @@ if (trades.length > MAX_TRADES) {
 
         <h3>2. Memory usage stays flat</h3>
 
-        <p>Without limits, memory grows forever.  
-        With limits, memory looks like this:</p>
+        <p>Without limits, memory grows forever.
+          With limits, memory looks like this:</p>
 
         <ul>
           <li>Start → 50MB</li>
@@ -142,8 +144,8 @@ if (trades.length > MAX_TRADES) {
         </ul>
 
         <h3>3. Garbage collection stays predictable</h3>
-        <p>Large arrays create GC spikes that freeze the UI.  
-        Bounded arrays avoid this entirely.</p>
+        <p>Large arrays create GC spikes that freeze the UI.
+          Bounded arrays avoid this entirely.</p>
 
         <h3>4. Charts and grids stay smooth</h3>
 
@@ -160,8 +162,8 @@ if (trades.length > MAX_TRADES) {
 
         <h3>5. The app behaves the same after hours of use</h3>
 
-        <p>A trading UI must be as fast at 4pm as it was at 9am.  
-        Memory‑bounded arrays guarantee that.</p>
+        <p>A trading UI must be as fast at 4pm as it was at 9am.
+          Memory‑bounded arrays guarantee that.</p>
 
         <hr />
 
@@ -175,11 +177,11 @@ if (trades.length > MAX_TRADES) {
           <li>Charts only need the last N candles</li>
         </ul>
 
-        <p>Everything else belongs in a backend database, not the browser.  
-        Memory‑bounded arrays prevent real‑time UIs from degrading over time.</p>
+        <p>Everything else belongs in a backend database, not the browser.
+          Memory‑bounded arrays prevent real‑time UIs from degrading over time.</p>
 
         <p><strong>Written by Ricardo Saumeth<br />
-        Senior Front‑End Engineer | Real‑Time UI Specialist</strong></p>
+            Senior Front‑End Engineer | Real‑Time UI Specialist</strong></p>
 
         <!-- Navigation Buttons -->
         <ul class="actions special">
@@ -202,7 +204,8 @@ if (trades.length > MAX_TRADES) {
           <h3>Links</h3>
           <ul class="icons alt">
             <li><a href="https://github.com/ricardosaumeth" class="icon brands alt fa-github"></a></li>
-            <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands alt fa-linkedin"></a></li>
+            <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands alt fa-linkedin"></a>
+            </li>
           </ul>
         </section>
       </section>

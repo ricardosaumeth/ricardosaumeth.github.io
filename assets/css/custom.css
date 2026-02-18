@@ -32,3 +32,8 @@
 	flex-shrink: 0;
 	margin-top: auto;
 }
+
+#pagination {
+	text-align: center;
+	margin: 2rem 0;
+}

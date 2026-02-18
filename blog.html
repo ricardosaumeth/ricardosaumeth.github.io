@@ -5,7 +5,10 @@
   <title>Blog — Ricardo Saumeth</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="icon" href="favicon.ico?v=3" sizes="any" />
+  <link rel="icon" href="images/favicon.svg?v=3" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
   <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
@@ -48,66 +51,11 @@
       </header>
 
       <section class="posts">
-
-        <!-- Post 1 -->
-        <article>
-          <header>
-            <span class="date">February 2026</span>
-            <h2>
-              <a href="post-real-time-hard-problems.html">
-                The Hardest Problems in Real‑Time Front‑End Engineering
-              </a>
-            </h2>
-          </header>
-
-          <a href="post-real-time-hard-problems.html" class="image fit">
-            <img src="images/course.png" alt="Real-Time Front-End Engineering" />
-          </a>
-
-          <p>
-            Real‑time systems expose every weakness in your architecture. After a decade building
-            trading dashboards and high‑frequency UIs, these are the five hardest problems engineers
-            face — and the patterns that actually solve them.
-          </p>
-
-          <ul class="actions special">
-            <li><a href="post-real-time-hard-problems.html" class="button">Read More</a></li>
-          </ul>
-        </article>
-
-        <!-- Post 2 -->
-        <article>
-          <header>
-            <span class="date">February 2026</span>
-            <h2>
-              <a href="post-metrics-that-matter.html">
-                Three Metrics That Matter More Than Core Web Vitals in Trading Apps
-              </a>
-            </h2>
-          </header>
-
-          <a href="post-metrics-that-matter.html" class="image fit">
-            <img src="images/course.png" alt="Real-Time Trading Metrics" />
-          </a>
-
-          <p>
-            Core Web Vitals don’t measure whether a trading app feels real‑time. These three metrics —
-            data processing latency, connection health, and memory stability — determine whether users
-            trust your UI during long, high‑frequency trading sessions.
-          </p>
-
-          <ul class="actions special">
-            <li><a href="post-metrics-that-matter.html" class="button">Read More</a></li>
-          </ul>
-        </article>
-       
-
+        <!-- Posts will be dynamically loaded here -->
       </section>
 
-      <!-- Pagination (optional, for future scaling) -->
-      <!-- <ul class="actions special">
-        <li><a href="blog-page2.html" class="button">Older Posts</a></li>
-      </ul> -->
+      <!-- Pagination -->
+      <div id="pagination"></div>
 
     </div>
 
@@ -146,6 +94,7 @@
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/blog.js"></script>
 
 </body>
 
