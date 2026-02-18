@@ -27,7 +27,7 @@
       <section class="split contact">
         <section>
           <h3>Email</h3>
-          <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
+          <p><a href="mailto:hello@ricardosaumeth.com">hello@ricardosaumeth@com</a></p>
         </section>
         <section>
           <h3>Links</h3>
