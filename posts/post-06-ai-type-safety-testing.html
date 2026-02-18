@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Type Safety, Testing & Performance Optimisation (with AI as a Junior Partner) — Ricardo
+      Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              ⭐ PART 2 — Type Safety, Testing &amp; Performance Optimisation<br />(with AI as a
+              Junior Partner)
+            </h1>
+          </header>
+
+          <p>
+            Real‑time systems fall apart without strict typing, solid tests, and predictable
+            performance.<br />
+            Here's how I used AI to accelerate the "boring but critical" parts of engineering.
+          </p>
+
+          <hr />
+
+          <h2>6. Type Safety: AI Generates TypeScript Definitions</h2>
+
+          <p>WebSocket streams demand strict typing for reliability and safe refactoring.</p>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "Create TypeScript types for Bitfinex WebSocket API v2:
+            <ul>
+              <li>Subscription messages</li>
+              <li>Channel types</li>
+              <li>Trade data</li>
+              <li>Candle data</li>
+              <li>Order book data</li>
+            </ul>
+          </blockquote>
+
+          <h3>AI generated clean enums and interfaces for:</h3>
+          <ul>
+            <li>TRADES, TICKER, CANDLES, BOOK</li>
+            <li>Subscription messages</li>
+            <li>Raw trade tuples vs normalized objects</li>
+          </ul>
+
+          <p>I adjusted a few fields to match the real API.</p>
+
+          <p><strong>Time saved:</strong> ~2–3 hours.</p>
+
+          <hr />
+
+          <h2>7. Testing: AI Writes Unit Tests</h2>
+
+          <p>Memory‑bounded reducers are easy to get wrong under load.</p>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "Write Vitest tests for memory‑bounded trades reducer:
+            <ul>
+              <li>Enforce MAX_TRADES</li>
+              <li>Remove oldest trades</li>
+              <li>Keep newest trades</li>
+            </ul>
+          </blockquote>
+
+          <h3>AI generated a full test suite that:</h3>
+          <ul>
+            <li>Pushed 1,500 trades</li>
+            <li>Asserted only the last 1,000 remained</li>
+            <li>Checked first and last IDs</li>
+          </ul>
+
+          <p>I aligned it with my reducer signature.</p>
+
+          <p><strong>Time saved:</strong> ~4–5 hours.</p>
+
+          <hr />
+
+          <h2>8. Performance — AI Helps Simplify, Not Over‑Engineer</h2>
+
+          <p>
+            In real‑time UIs, it's tempting to over‑engineer performance. For CryptoApp, I kept it
+            simple and used AI to validate the approach.
+          </p>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "Order book UI feels heavy under constant updates. Suggest lightweight performance
+            strategies for React + AG Grid."
+          </blockquote>
+
+          <p>
+            AI suggested several options (batching, debouncing, transactional updates), but for this
+            app I went with:
+          </p>
+
+          <ul>
+            <li>A 100ms useThrottle on incoming order updates</li>
+            <li>A memory‑bounded order book with MAX_BOOK_ORDERS = 100</li>
+            <li>Standard rowData updates into AG Grid</li>
+          </ul>
+
+          <p>
+            That was enough to keep the grid smooth and responsive without adding complexity I
+            didn't need.
+          </p>
+
+          <p><strong>Time saved:</strong> ~1 day of trial‑and‑error and premature optimisation</p>
+
+          <hr />
+
+          <h2>⭐ Real Results</h2>
+
+          <p><strong>CryptoApp:</strong></p>
+          <ul>
+            <li>5,000+ LOC</li>
+            <li>Built in ~5 days (vs 3–4 weeks)</li>
+            <li>60 FPS stable</li>
+            <li>~60MB memory after 8 hours</li>
+            <li>Handler‑based, memory‑bounded, monitored, production‑ready</li>
+          </ul>
+
+          <p>
+            <em
+              >Note: These time‑savings are experience‑based estimates. AI sped up the repetitive
+              work — the real engineering still came from me.</em
+            >
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

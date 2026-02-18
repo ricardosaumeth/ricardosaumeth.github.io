@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+  <head>
+    <title>When AI Makes Things Worse (and How Senior Engineers Recover) — Ricardo Saumeth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>⭐ PART 4 — When AI Makes Things Worse<br />(and How Senior Engineers Recover)</h1>
+          </header>
+
+          <p>This is the part nobody talks about.</p>
+
+          <p>
+            AI doesn't just speed you up.<br />
+            Sometimes, it quietly makes things worse.
+          </p>
+
+          <hr />
+
+          <h2>1. It Generates Bad or Over‑Engineered Code</h2>
+
+          <p>Sometimes the output:</p>
+          <ul>
+            <li>Doesn't fit your architecture</li>
+            <li>Uses patterns you'd never ship</li>
+            <li>Relies on non‑existent APIs</li>
+            <li>Is harder to maintain than writing it yourself</li>
+          </ul>
+
+          <h3>What I do:</h3>
+          <p>
+            Treat it as a draft.<br />
+            Keep the ideas — rewrite the implementation.
+          </p>
+
+          <hr />
+
+          <h2>2. It Refactors Large Features Poorly</h2>
+
+          <p>Big refactors are where AI struggles most:</p>
+          <ul>
+            <li>Loses context</li>
+            <li>Breaks types</li>
+            <li>Introduces subtle bugs</li>
+            <li>"Almost works"</li>
+          </ul>
+
+          <h3>What I do:</h3>
+          <p>Break the refactor into small steps:</p>
+          <ul>
+            <li>"Extract this logic into a helper."</li>
+            <li>"Rename this type and update all references."</li>
+            <li>"Split this reducer into two smaller ones."</li>
+          </ul>
+
+          <p>AI is great at small, well‑framed changes — not giant rewrites.</p>
+
+          <hr />
+
+          <h2>3. It Forces You to Study the Code Anyway</h2>
+
+          <p>
+            Even when AI writes code, I still have to:<br />
+            <strong>read → understand → validate → test → integrate.</strong>
+          </p>
+
+          <h3>What I do:</h3>
+          <p>Ask AI to explain its own code:</p>
+          <ul>
+            <li>"Explain this reducer step by step."</li>
+            <li>"What edge cases does this miss?"</li>
+            <li>"How would this behave after 8 hours?"</li>
+          </ul>
+
+          <p><strong>If it can't explain it clearly, I don't trust it.</strong></p>
+
+          <hr />
+
+          <h2>4. It Gets Stuck in Loops</h2>
+
+          <p>Sometimes it keeps:</p>
+          <ul>
+            <li>Repeating the same pattern</li>
+            <li>Ignoring constraints</li>
+            <li>"Fixing" things by breaking others</li>
+          </ul>
+
+          <h3>What I do:</h3>
+          <ul>
+            <li>Reset context</li>
+            <li>Paste the exact file</li>
+            <li>State constraints</li>
+            <li>Show the failing test</li>
+          </ul>
+
+          <p><strong>The tighter the frame, the better the output.</strong></p>
+
+          <hr />
+
+          <h2>The Reality</h2>
+
+          <p>
+            AI is powerful — but it's not a senior engineer.<br />
+            It doesn't own architecture, trade‑offs, or long‑term maintenance.
+          </p>
+
+          <p><strong>That's still on us.</strong></p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

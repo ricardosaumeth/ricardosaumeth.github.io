@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      How React 19 Changes Real‑Time State Management (And What Senior Engineers Should Stop Doing)
+      — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              How React 19 Changes Real‑Time State Management<br />(And What Senior Engineers Should
+              Stop Doing)
+            </h1>
+          </header>
+
+          <p>
+            React 19 isn't a "new features" release.<br />
+            <strong>It's a new mental model for how real‑time UIs should work.</strong>
+          </p>
+
+          <p>
+            If you're building dashboards, trading apps, or anything that ingests high‑frequency
+            data, React 19 forces you to rethink patterns that used to be "best practice" — and now
+            actively get in your way.
+          </p>
+
+          <p>Here are the biggest shifts senior engineers need to internalize.</p>
+
+          <hr />
+
+          <h2>1 — Stop Pushing Every Tick Into React State</h2>
+
+          <p>
+            React 19's transitions and concurrent rendering make one thing clear:<br />
+            <strong>React is not your event processor.</strong>
+          </p>
+
+          <p>If you push every WebSocket tick into useState, you're fighting the framework.</p>
+
+          <p>Real‑time UIs need:</p>
+          <ul>
+            <li>A buffer</li>
+            <li>A scheduler</li>
+            <li>A controlled commit frequency</li>
+          </ul>
+
+          <p>
+            <strong
+              >React 19 rewards systems that batch and stabilize data before it hits the component
+              tree.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>2 — Stop Treating Derived Data as Real State</h2>
+
+          <p>In real‑time systems, derived data is often more expensive than the raw feed.</p>
+
+          <p>React 19's new memoization semantics make it even more important to:</p>
+          <ul>
+            <li>Normalize your data</li>
+            <li>Keep reducers pure</li>
+            <li>Memoize selectors, not components</li>
+            <li>Avoid storing anything you can compute</li>
+          </ul>
+
+          <p>
+            <strong
+              >Your state should be minimal, stable, and predictable.<br />
+              Everything else is a selector.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>3 — Stop Rendering on Every Update</h2>
+
+          <p>
+            React 19 is brutally honest about rendering cost.<br />
+            If your UI re-renders too often, it's your architecture — not React.
+          </p>
+
+          <p>The new concurrent features make it obvious when your system is:</p>
+          <ul>
+            <li>Over‑subscribed</li>
+            <li>Over‑rendering</li>
+            <li>Over‑computing</li>
+          </ul>
+
+          <p>
+            The fix isn't "optimize React."<br />
+            <strong>It's optimize your data flow.</strong>
+          </p>
+
+          <p>
+            Windowing, domain‑isolated slices, and memoized selectors are no longer "nice to
+            have."<br />
+            They're survival tools.
+          </p>
+
+          <hr />
+
+          <h2>The Big Takeaway</h2>
+
+          <p>
+            React 19 doesn't magically make real‑time UIs faster.<br />
+            <strong>It makes the wrong architecture fail faster.</strong>
+          </p>
+
+          <p>If your system:</p>
+          <ul>
+            <li>Normalizes data</li>
+            <li>Batches updates</li>
+            <li>Memoizes selectors</li>
+            <li>Minimizes state</li>
+            <li>Treats React as a renderer, not a data engine</li>
+          </ul>
+
+          <p>…then React 19 becomes a superpower.</p>
+
+          <p>If not, it becomes a bottleneck.</p>
+
+          <p>
+            <strong
+              >Real‑time engineering has always been about where you spend complexity.<br />
+              React 19 just makes that impossible to ignore.</strong
+            >
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

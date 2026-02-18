@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Why Real‑Time UIs Break at Scale (And the 3 Patterns That Always Survive Load) — Ricardo
+      Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              Why Real‑Time UIs Break at Scale<br />(And the 3 Patterns That Always Survive Load)
+            </h1>
+          </header>
+
+          <p>Most front‑end engineers think real‑time systems fail because of "speed."</p>
+
+          <p><strong>They don't.</strong></p>
+
+          <p>
+            Real‑time UIs fail because the architecture collapses under the weight of its own
+            assumptions.
+          </p>
+
+          <p>
+            After years building trading dashboards, FX RFQ systems, and crypto market UIs, I've
+            learned that the hardest problems aren't rendering or WebSockets — they're
+            <strong>data shape, data flow, and trust.</strong>
+          </p>
+
+          <p>Here are the three failure modes I see over and over again.</p>
+
+          <hr />
+
+          <h2>1 — The UI Doesn't Have a Real Source of Truth</h2>
+
+          <p>Most dashboards treat every incoming message as "the truth."</p>
+
+          <p>In real‑time systems, that's a lie.</p>
+
+          <p>Messages arrive:</p>
+          <ul>
+            <li>Out of order</li>
+            <li>Duplicated</li>
+            <li>Missing fields</li>
+            <li>With partial updates</li>
+            <li>Faster than the UI can process</li>
+          </ul>
+
+          <p>
+            <strong
+              >If you don't normalize and validate at the boundary, your UI becomes a
+              hallucination.</strong
+            >
+          </p>
+
+          <h3>Pattern that survives:</h3>
+          <p>Schema‑validated, normalized state with deterministic reducers.</p>
+
+          <hr />
+
+          <h2>2 — The Render Pipeline Is Too Expensive</h2>
+
+          <p>
+            Real‑time UIs don't die because of WebSockets.<br />
+            They die because the UI tries to re‑render everything on every tick.
+          </p>
+
+          <p>
+            If your component tree is deeply nested and your selectors aren't memoized, you're done.
+          </p>
+
+          <h3>Pattern that survives:</h3>
+          <p>Windowing, memoized selectors, and domain‑isolated slices of state.</p>
+
+          <p>
+            <strong
+              >Render only what changed.<br />
+              Ignore everything else.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>3 — The App Doesn't Handle Load as a Product Problem</h2>
+
+          <p>
+            Real‑time engineering isn't about shaving milliseconds.<br />
+            It's about deciding where to spend complexity.
+          </p>
+
+          <p>
+            Batching updates by 50–200ms isn't "slow."<br />
+            It's how you prevent jitter, CPU spikes, and user distrust.
+          </p>
+
+          <h3>Pattern that survives:</h3>
+          <p>Micro‑batching, backpressure, and predictable update intervals.</p>
+
+          <p>
+            <strong
+              >A UI that's 50ms "slower" but 10× more stable is a better real‑time system.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>The Real Lesson</h2>
+
+          <p>
+            Real‑time engineering isn't about speed.<br />
+            <strong>It's about trust.</strong>
+          </p>
+
+          <p>A user will forgive a 100ms delay.</p>
+
+          <p>They won't forgive:</p>
+          <ul>
+            <li>A flickering order book</li>
+            <li>A price that jumps backwards</li>
+            <li>A chart that lies</li>
+            <li>A UI that feels "possessed" under load</li>
+          </ul>
+
+          <p>
+            <strong
+              >If your system can maintain truth, stability, and predictability under pressure, it's
+              real‑time.</strong
+            >
+          </p>
+
+          <p>Everything else is animation.</p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

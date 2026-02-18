@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      The Most Dangerous Bug in Real‑Time Systems Isn't a Crash — It's a Lie — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>The Most Dangerous Bug in Real‑Time Systems<br />Isn't a Crash — It's a Lie</h1>
+          </header>
+
+          <p>
+            Most frontend bugs are loud.<br />
+            They throw errors.<br />
+            They break layouts.<br />
+            They crash the page.
+          </p>
+
+          <p><strong>Real‑time UI bugs are different.</strong></p>
+
+          <p>
+            They fail quietly.<br />
+            They drift.<br />
+            They look alive while showing a world that no longer exists.
+          </p>
+
+          <hr />
+
+          <h2>The Silent Failure</h2>
+
+          <p>
+            A WebSocket stays "connected."<br />
+            A price looks "fresh."<br />
+            A chart keeps animating.<br />
+            A component keeps rendering.
+          </p>
+
+          <p><strong>And yet the data is wrong.</strong></p>
+
+          <p>
+            This is the most dangerous failure mode in real‑time systems:<br />
+            <strong>A UI that looks correct while lying to the user.</strong>
+          </p>
+
+          <hr />
+
+          <h2>The Pattern Is Universal</h2>
+
+          <p>
+            It doesn't matter whether you're building a trading dashboard, a monitoring tool, a
+            multiplayer game, or a live analytics panel — the pattern is the same:
+          </p>
+
+          <ul>
+            <li>The system stops receiving updates</li>
+            <li>The UI keeps rendering old state</li>
+            <li>No errors fire</li>
+            <li>No warnings appear</li>
+            <li>Users act on fiction</li>
+          </ul>
+
+          <p><strong>And fiction is expensive.</strong></p>
+
+          <hr />
+
+          <h2>The Fix Isn't "Better Error Handling"</h2>
+
+          <p>It's a mindset shift:</p>
+
+          <ul>
+            <li>Treat freshness as domain data</li>
+            <li>Treat heartbeats as a first‑class signal</li>
+            <li>Treat silence as a failure</li>
+            <li>Treat drift as a critical event</li>
+            <li>Treat data age as a first‑class property</li>
+          </ul>
+
+          <hr />
+
+          <h2>The Bottom Line</h2>
+
+          <p>
+            A real‑time UI shouldn't just show data.<br />
+            <strong>It should show whether the data can be trusted.</strong>
+          </p>
+
+          <p>
+            Because the most expensive failures aren't caused by crashes.<br />
+            They're caused by UIs that keep smiling while the truth is slipping away.
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

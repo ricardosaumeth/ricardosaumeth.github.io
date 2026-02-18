@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Why WebSocket Middleware Is the Secret Weapon Behind Scalable Real‑Time Apps — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              Why WebSocket Middleware Is the Secret Weapon<br />Behind Scalable Real‑Time Apps
+            </h1>
+          </header>
+
+          <p>Most developers treat WebSocket middleware as "plumbing."</p>
+
+          <p>
+            After building a crypto trading dashboard that processes 60+ updates per second across
+            10 currency pairs, I learned the opposite:
+          </p>
+
+          <p>
+            <strong
+              >Middleware is the brain of your real‑time system.<br />
+              Without it, everything breaks.</strong
+            >
+          </p>
+
+          <p>Here's what separates toy demos from production‑grade real‑time apps.</p>
+
+          <hr />
+
+          <h2>Raw WebSockets Are Chaos</h2>
+
+          <p>A WebSocket stream is a firehose:</p>
+          <ul>
+            <li>Inconsistent message formats</li>
+            <li>No ordering guarantees</li>
+            <li>No stale‑state detection</li>
+            <li>No memory control</li>
+            <li>No reconnection strategy</li>
+            <li>No performance visibility</li>
+          </ul>
+
+          <hr />
+
+          <h2>Middleware Turns Chaos Into Architecture</h2>
+
+          <p>A proper middleware layer becomes mission control:</p>
+          <ul>
+            <li>Routes messages to specialized handlers</li>
+            <li>Tracks connection health</li>
+            <li>Detects stale data</li>
+            <li>Enforces memory bounds</li>
+            <li>Monitors processing latency</li>
+            <li>Manages subscription lifecycles</li>
+            <li>Recovers from failures gracefully</li>
+          </ul>
+
+          <hr />
+
+          <h2>Handler Architecture Is Everything</h2>
+
+          <p>Instead of one giant onmessage, production systems use pure, modular handlers:</p>
+          <ul>
+            <li>handleTradesData</li>
+            <li>handleTickerData</li>
+            <li>handleCandlesData</li>
+            <li>handleBookData</li>
+          </ul>
+
+          <p>
+            Each handler processes only its domain.<br />
+            No bottlenecks. No cross‑contamination. No surprises.
+          </p>
+
+          <hr />
+
+          <h2>Stale‑State Detection Saves Users From Bad Decisions</h2>
+
+          <p>
+            A 90‑second heartbeat timeout with a 30‑second check interval is enough to catch silent
+            failures.
+          </p>
+
+          <p>
+            When the connection drops, the UI shows stale indicators instead of misleading data.
+          </p>
+
+          <hr />
+
+          <h2>Memory‑Bounded Arrays Prevent Browser Death</h2>
+
+          <p>
+            Real‑time apps accumulate data.<br />
+            If you don't enforce bounds, memory grows forever.
+          </p>
+
+          <h3>With bounds:</h3>
+          <ul>
+            <li>1,000 trades per pair</li>
+            <li>Stable memory</li>
+            <li>No crashes</li>
+            <li>Predictable performance</li>
+          </ul>
+
+          <h3>Without bounds:</h3>
+          <p>8 hours = 288,000 objects and a browser that melts.</p>
+
+          <hr />
+
+          <h2>Performance Monitoring Is Non‑Negotiable</h2>
+
+          <p>
+            Every handler tracks its own processing time.<br />
+            If latency spikes, you know before your users do.
+          </p>
+
+          <p>This is how you catch UI thread congestion early.</p>
+
+          <hr />
+
+          <h2>Subscription Lifecycles Are a System of Their Own</h2>
+
+          <p>
+            Real‑time subscriptions aren't "subscribe/unsubscribe."<br />
+            They move through states:
+          </p>
+          <ul>
+            <li>Pending</li>
+            <li>Active</li>
+            <li>Stale</li>
+            <li>Failed</li>
+            <li>Recovering</li>
+          </ul>
+
+          <p>
+            Middleware orchestrates all of it — with timeouts, retries, and exponential backoff.
+          </p>
+
+          <hr />
+
+          <h2>The Production Difference</h2>
+
+          <h3>Demo code:</h3>
+          <pre>socket.onmessage = setState(data)</pre>
+
+          <h3>Production code:</h3>
+          <ul>
+            <li>Middleware layer</li>
+            <li>Pure handlers</li>
+            <li>Memory bounds</li>
+            <li>Stale detection</li>
+            <li>Reconnection logic</li>
+            <li>Performance tracking</li>
+            <li>Lifecycle management</li>
+          </ul>
+
+          <p>
+            This is what turns a fragile prototype into a system that handles millions in trading
+            volume.
+          </p>
+
+          <hr />
+
+          <h2>The Bottom Line</h2>
+
+          <p>
+            WebSocket middleware isn't an implementation detail.<br />
+            It's infrastructure.
+          </p>
+
+          <p>
+            <strong>Without it:</strong> your app is a demo that breaks under load.<br />
+            <strong>With it:</strong> your app becomes a bulletproof real‑time system.
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

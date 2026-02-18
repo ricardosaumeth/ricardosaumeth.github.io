@@ -5,7 +5,7 @@
     "date": "February 2026",
     "image": "images/crypto-app.png",
     "excerpt": "Real‑time systems expose every weakness in your architecture. After a decade building trading dashboards and high‑frequency UIs, these are the five hardest problems engineers face — and the patterns that actually solve them.",
-    "file": "posts/post-real-time-hard-problems.html"
+    "file": "posts/post-01-real-time-hard-problems.html"
   },
   {
     "id": "metrics-that-matter",
@@ -13,7 +13,7 @@
     "date": "February 2026",
     "image": "images/crypto-app.png",
     "excerpt": "Core Web Vitals don't measure whether a trading app feels real‑time. These three metrics — data processing latency, connection health, and memory stability — determine whether users trust your UI during long, high‑frequency trading sessions.",
-    "file": "posts/post-metrics-that-matter.html"
+    "file": "posts/post-02-metrics-that-matter.html"
   },
   {
     "id": "react-high-frequency-architecture",
@@ -21,7 +21,7 @@
     "date": "January 2026",
     "image": "images/crypto-app.png",
     "excerpt": "How to architect React applications that handle thousands of updates per second without dropping frames. Learn the scheduling patterns, batching strategies, and performance optimizations used in professional trading platforms.",
-    "file": "posts/post-react-high-frequency-architecture.html"
+    "file": "posts/post-03-react-high-frequency-architecture.html"
   },
   {
     "id": "memory-bounded-arrays",
@@ -29,6 +29,150 @@
     "date": "January 2026",
     "image": "images/crypto-app.png",
     "excerpt": "When dealing with real‑time data streams, memory management becomes critical. Discover how memory‑bounded arrays prevent memory leaks while maintaining smooth UI performance in long‑running applications.",
-    "file": "posts/post-memory-bounded-arrays.html"
+    "file": "posts/post-04-memory-bounded-arrays.html"
+  },
+  {
+    "id": "ai-acceleration",
+    "title": "How Senior Front‑End Engineers Use AI to Accelerate Real‑Time UI Development",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "A case study from building a production‑grade cryptocurrency trading dashboard. Learn how AI accelerated architecture design, memory management, performance monitoring, and documentation — compressing months of work into focused weeks.",
+    "file": "posts/post-05-ai-acceleration.html"
+  },
+  {
+    "id": "ai-type-safety-testing",
+    "title": "Type Safety, Testing & Performance Optimisation (with AI as a Junior Partner)",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Real‑time systems fall apart without strict typing, solid tests, and predictable performance. Learn how AI accelerated TypeScript definitions, unit testing, and performance optimization — the boring but critical parts of engineering.",
+    "file": "posts/post-06-ai-type-safety-testing.html"
+  },
+  {
+    "id": "ai-struggles",
+    "title": "Where AI Struggles (and Why Senior Engineers Matter)",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "AI accelerates — but it doesn't understand production. Learn about edge cases, performance trade‑offs, API quirks, and memory management challenges that only experience catches when building real‑time systems.",
+    "file": "posts/post-07-ai-struggles.html"
+  },
+  {
+    "id": "ai-makes-things-worse",
+    "title": "When AI Makes Things Worse (and How Senior Engineers Recover)",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "AI doesn't just speed you up — sometimes it quietly makes things worse. Learn how to handle bad code generation, poor refactors, context loss, and infinite loops while maintaining engineering quality.",
+    "file": "posts/post-08-ai-makes-things-worse.html"
+  },
+  {
+    "id": "ai-playbook",
+    "title": "The Senior Engineer's Playbook for Using AI Effectively",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "How to use AI without letting it use you. Learn actionable strategies for treating AI as a junior partner, accelerating boilerplate, validating output, and maintaining architectural control in production systems.",
+    "file": "posts/post-09-ai-playbook.html"
+  },
+  {
+    "id": "market-vs-limit-orders",
+    "title": "Market Orders vs Limit Orders — And How They Mutate Real‑Time UI State",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Market orders mutate state once. Limit orders mutate state continuously. This single difference changes everything about how your trading UI behaves. Learn why real‑time trading UIs are about orchestrating state, not just rendering data.",
+    "file": "posts/post-10-market-vs-limit-orders.html"
+  },
+  {
+    "id": "websocket-middleware",
+    "title": "Why WebSocket Middleware Is the Secret Weapon Behind Scalable Real‑Time Apps",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Middleware is the brain of your real‑time system. Learn how handler architecture, stale‑state detection, memory bounds, performance monitoring, and subscription lifecycles turn raw WebSocket chaos into production‑grade infrastructure.",
+    "file": "posts/post-11-websocket-middleware.html"
+  },
+  {
+    "id": "websocket-middleware",
+    "title": "Why WebSocket Middleware Is the Secret Weapon Behind Scalable Real‑Time Apps",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Middleware is the brain of your real‑time system. Learn how handler architecture, stale‑state detection, memory bounds, performance monitoring, and subscription lifecycles turn raw WebSocket chaos into production‑grade infrastructure.",
+    "file": "posts/post-11-websocket-middleware.html"
+  },
+  {
+    "id": "course-launch",
+    "title": "I Just Launched My Real-Time React 19 + TypeScript Course",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "After years building real-time trading systems across FX, crypto, and high‑frequency analytics, I packaged everything into a complete course. Learn WebSocket pipelines, handler-based architecture, AG‑Grid + Highcharts patterns, and build production‑grade dashboards.",
+    "file": "posts/post-12-course-launch.html"
+  },
+  {
+    "id": "complexity-capital",
+    "title": "Real‑Time Engineering Isn't About Speed — It's About Knowing Where to Spend Complexity",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Performance isn't free — it's purchased with complexity. The real skill is knowing where to spend it. Learn why circular buffers, batching layers, and handler architectures are worth 100× the complexity, while generic abstractions become sinkholes.",
+    "file": "posts/post-13-complexity-capital.html"
+  },
+  {
+    "id": "dangerous-bug-lie",
+    "title": "The Most Dangerous Bug in Real‑Time Systems Isn't a Crash — It's a Lie",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Real‑time UI bugs fail quietly. They drift. They look alive while showing a world that no longer exists. Learn why a UI that looks correct while lying to the user is the most dangerous failure mode — and how to treat freshness, heartbeats, and silence as first‑class signals.",
+    "file": "posts/post-14-dangerous-bug-lie.html"
+  },
+  {
+    "id": "break-at-scale",
+    "title": "Why Real‑Time UIs Break at Scale (And the 3 Patterns That Always Survive Load)",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Real‑time UIs fail because the architecture collapses under its own assumptions. Learn the three failure modes: no source of truth, expensive render pipelines, and treating load as a speed problem. Discover the patterns that survive: normalized state, memoized selectors, and micro‑batching.",
+    "file": "posts/post-15-break-at-scale.html"
+  },
+  {
+    "id": "react-19-state-management",
+    "title": "How React 19 Changes Real‑Time State Management (And What Senior Engineers Should Stop Doing)",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "React 19 is a new mental model for real‑time UIs. Stop pushing every tick into React state, treating derived data as real state, and rendering on every update. Learn why React 19 rewards batching, normalization, and treating React as a renderer — not a data engine.",
+    "file": "posts/post-16-react-19-state-management.html"
+  },
+  {
+    "id": "ai-gaps",
+    "title": "The Only Parts of Real‑Time UI Development AI Still Can't Do (And How Seniors Fill the Gap)",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "AI can generate boilerplate and write reducers, but it can't decide where to spend complexity, handle messy imperfect data, or predict how users will lose trust. Learn why real‑time systems break because of missing decisions — not missing code.",
+    "file": "posts/post-17-ai-gaps.html"
+  },
+  {
+    "id": "performance-metrics",
+    "title": "Performance Metrics for Real‑Time Trading Apps: What Every Developer Should Know",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Traditional web performance metrics don't capture what truly matters in real‑time applications. Learn why data processing latency is the metric you control, how to prevent memory leaks, and where optimizations actually pay off in trading dashboards.",
+    "file": "posts/post-18-performance-metrics.html"
+  },
+  {
+    "id": "hidden-architecture",
+    "title": "The Hidden Architecture Behind Real‑Time UIs: What Most Engineers Overlook",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Real‑time UI engineering isn't about speed — it's about architecture. Learn the five hidden layers that separate working UIs from ones that survive load: data contracts, state isolation, render budgets, backpressure, and failure modes.",
+    "file": "posts/post-19-hidden-architecture.html"
+  },
+  {
+    "id": "react-typescript-2026",
+    "title": "React + TypeScript in 2026: The Patterns That Actually Scale",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Most React + TypeScript codebases fail because the architecture doesn't scale. Learn the five patterns that work: feature‑first modules, domain‑driven types, state by scope, event‑driven UI, and tests as contracts — not comfort blankets.",
+    "file": "posts/post-20-react-typescript-2026.html"
+  },
+  {
+    "id": "performance-is-feature",
+    "title": "Why Performance Is a Feature: Lessons From Building Low‑Latency Trading Systems",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Most teams treat performance as an afterthought. In low‑latency trading systems, that mindset doesn't survive. Learn why latency is a UX problem, throughput beats micro‑optimizations, rendering is the bottleneck, and performance is architecture — not heroics.",
+    "file": "posts/post-21-performance-is-feature.html"
   }
 ]

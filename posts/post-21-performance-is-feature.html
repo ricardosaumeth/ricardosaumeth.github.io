@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Why Performance Is a Feature: Lessons From Building Low‑Latency Trading Systems — Ricardo
+      Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../book.html">Book</a></li>
+          <li><a href="../course.html">Course</a></li>
+          <li><a href="../library.html">Real‑Time React</a></li>
+          <li class="active"><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://github.com/ricardosaumeth"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-linkedin"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              Why Performance Is a Feature:<br />Lessons From Building Low‑Latency Trading Systems
+            </h1>
+          </header>
+
+          <p>Most teams treat performance as an afterthought — something you "optimize later".</p>
+
+          <p>In low‑latency trading systems, that mindset doesn't survive a single market spike.</p>
+
+          <p>
+            <strong
+              >Performance is a feature.<br />
+              And when it's missing, everything else collapses.</strong
+            >
+          </p>
+
+          <p>Here are the lessons that only show up when milliseconds actually matter.</p>
+
+          <hr />
+
+          <h2>1 — Latency Is a UX Problem, Not a Backend Metric</h2>
+
+          <p>
+            Users don't care about your p99 charts.<br />
+            They care about whether the UI reacts instantly when the market moves.
+          </p>
+
+          <p>
+            <strong
+              >If the interface hesitates, they lose trust — and in trading, trust is
+              everything.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>2 — Throughput Beats Micro‑Optimizations</h2>
+
+          <p>
+            You can shave 2ms off a function and still drown when the stream jumps from 200
+            updates/sec to 2,000.
+          </p>
+
+          <p>
+            <strong
+              >Systems survive because they handle volume, not because they're "fast" in
+              isolation.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>3 — Rendering Is the Real Bottleneck</h2>
+
+          <p>
+            In real‑time UIs, the slowest part isn't the network.<br />
+            It's the browser.
+          </p>
+
+          <p>
+            <strong
+              >The teams that win are the ones who learn to avoid rendering, not optimize
+              it.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>4 — Backpressure Is a Survival Mechanism</h2>
+
+          <p>If your system can't push back, it dies.</p>
+
+          <p>
+            Batching, coalescing, snapshotting — these aren't tricks.<br />
+            <strong
+              >They're the difference between stable under load and frozen during
+              volatility.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>5 — Performance Is Architecture, Not Heroics</h2>
+
+          <p>
+            You don't get low latency by sprinkling useMemo everywhere.<br />
+            You get it by designing:
+          </p>
+
+          <ul>
+            <li>Predictable data flows</li>
+            <li>Isolated state</li>
+            <li>Event‑driven updates</li>
+            <li>Minimal rendering paths</li>
+          </ul>
+
+          <p><strong>Performance is the outcome of good boundaries.</strong></p>
+
+          <hr />
+
+          <h2>The Punchline</h2>
+
+          <p>
+            Performance isn't a nice‑to‑have.<br />
+            It's a product decision, a UX guarantee, and a competitive advantage.
+          </p>
+
+          <p>
+            In trading systems — and increasingly in every complex UI —<br />
+            <strong>performance is the feature that makes all other features possible.</strong>
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <ul class="actions special"></ul>
+        </section>
+      </div>
+
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
+          </section>
+          <section>
+            <h3>Links</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://github.com/ricardosaumeth"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands alt fa-github"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands alt fa-linkedin"
+                ></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>© 2026 Ricardo Saumeth</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

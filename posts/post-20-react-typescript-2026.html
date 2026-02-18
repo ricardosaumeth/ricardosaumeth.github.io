@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+  <head>
+    <title>React + TypeScript in 2026: The Patterns That Actually Scale — Ricardo Saumeth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <div data-component="nav" data-base-path="../"></div>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>React + TypeScript in 2026:<br />The Patterns That Actually Scale</h1>
+          </header>
+
+          <p>
+            Most React + TypeScript codebases don't fail because of bad syntax.<br />
+            They fail because the architecture doesn't scale.
+          </p>
+
+          <p>Here are the patterns that actually scale — and the ones that quietly kill teams.</p>
+
+          <hr />
+
+          <h2>1 — Feature‑First Modules, Not Tech‑First Folders</h2>
+
+          <p>If your app is still structured like this:</p>
+          <ul>
+            <li>components/</li>
+            <li>hooks/</li>
+            <li>utils/</li>
+            <li>pages/</li>
+          </ul>
+          <p>…you're already in trouble.</p>
+
+          <p>Scaling teams need feature‑first boundaries:</p>
+          <ul>
+            <li>trading/</li>
+            <li>positions/</li>
+            <li>orders/</li>
+            <li>analytics/</li>
+          </ul>
+
+          <p>Each with:</p>
+          <ul>
+            <li>Its own components</li>
+            <li>Its own hooks</li>
+            <li>Its own types</li>
+            <li>Its own tests</li>
+          </ul>
+
+          <p>
+            <strong>Pattern that scales:</strong> feature‑sliced architecture.<br />
+            <strong>Pattern that dies:</strong> "shared" everything.
+          </p>
+
+          <hr />
+
+          <h2>2 — TypeScript as a Domain Language, Not a Safety Net</h2>
+
+          <p>
+            Most teams use TypeScript like this:<br />
+            <em>"Let's just add types so it doesn't crash."</em>
+          </p>
+
+          <p>
+            Senior teams use it like this:<br />
+            <strong>"Let's model the domain so it can't lie."</strong>
+          </p>
+
+          <p>That means:</p>
+          <pre><code>OrderSide = BUY | SELL
+OrderStatus = PENDING | FILLED | CANCELLED | REJECTED
+Price = Branded&lt;number, 'Price'&gt;
+Quantity = Branded&lt;number, 'Quantity'&gt;</code></pre>
+
+          <p>
+            You're not just avoiding bugs.<br />
+            You're encoding business rules into the type system.
+          </p>
+
+          <p>
+            <strong>Pattern that scales:</strong> domain‑driven types.<br />
+            <strong>Pattern that dies:</strong> any, unknown, string | number | null.
+          </p>
+
+          <hr />
+
+          <h2>3 — State Management as Scope, Not as Tool War</h2>
+
+          <p>Redux vs Zustand vs Context vs Signals vs Whatever‑Is‑New‑This‑Week.</p>
+
+          <p>
+            None of that matters if you don't answer one question:<br />
+            <strong>What state belongs where?</strong>
+          </p>
+
+          <p>Patterns that scale:</p>
+          <ul>
+            <li>Local UI state → useState / useReducer</li>
+            <li>Feature state → feature store (Zustand/Redux/etc.)</li>
+            <li>App‑wide state → global store (auth, theme, user)</li>
+            <li>Server state → React Query / RTK Query / custom cache</li>
+          </ul>
+
+          <p>
+            <strong>Pattern that scales:</strong> state by scope.<br />
+            <strong>Pattern that dies:</strong> "just put it in global state".
+          </p>
+
+          <hr />
+
+          <h2>4 — Pub/Sub over Prop Drilling and Global Mess</h2>
+
+          <p>As apps grow, everything wants to talk to everything.</p>
+
+          <p>The naive solution:</p>
+          <ul>
+            <li>Pass props down 5 levels</li>
+            <li>Or throw everything into a global store</li>
+          </ul>
+
+          <p>The scalable solution:</p>
+          <ul>
+            <li>Events</li>
+            <li>Pub/sub</li>
+            <li>Domain‑level channels</li>
+          </ul>
+
+          <p>Example:</p>
+          <ul>
+            <li>order:created</li>
+            <li>order:updated</li>
+            <li>position:closed</li>
+            <li>price:stream:spike</li>
+          </ul>
+
+          <p>Components react to events instead of being tightly coupled.</p>
+
+          <p>
+            <strong>Pattern that scales:</strong> event‑driven UI.<br />
+            <strong>Pattern that dies:</strong> "just pass it down".
+          </p>
+
+          <hr />
+
+          <h2>5 — Tests as Contracts, Not as Comfort Blanket</h2>
+
+          <p>Saying "In 2026, we have tests" is meaningless.</p>
+
+          <p>What matters is:</p>
+          <ul>
+            <li>Do your tests lock in behaviour that matters?</li>
+            <li>Do they describe domain rules, not implementation details?</li>
+            <li>Can a new engineer change a component without breaking 50 brittle tests?</li>
+          </ul>
+
+          <p>Patterns that scale:</p>
+          <ul>
+            <li>Test behaviour, not internals</li>
+            <li>Test contracts, not implementation</li>
+            <li>Test critical flows, not every line</li>
+          </ul>
+
+          <p>
+            <strong>Pattern that scales:</strong> tests as living documentation.<br />
+            <strong>Pattern that dies:</strong> 100% coverage as a vanity metric.
+          </p>
+
+          <hr />
+
+          <h2>The Punchline</h2>
+
+          <p>
+            React + TypeScript in 2026 is about:<br />
+            Boundaries, domain‑driven types, scoped state, events, and tests that describe behavior.
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <ul class="actions special"></ul>
+        </section>
+      </div>
+
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

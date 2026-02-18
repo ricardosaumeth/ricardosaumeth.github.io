@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Real‑Time Engineering Isn't About Speed — It's About Knowing Where to Spend Complexity —
+      Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              Real‑Time Engineering Isn't About Speed —<br />It's About Knowing Where to Spend
+              Complexity
+            </h1>
+          </header>
+
+          <p>Every real‑time UI eventually hits the same wall.</p>
+
+          <p>
+            Not because the code is bad.<br />
+            Not because the framework is slow.<br />
+            Not because the backend is overloaded.
+          </p>
+
+          <p>
+            It hits the wall because the browser is being asked to do something it was never
+            designed for:
+          </p>
+
+          <p>
+            <strong
+              >Process unbounded streams, under finite resources, with zero tolerance for
+              drift.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>And here's the part most engineers miss:</h2>
+
+          <p>
+            <strong
+              >Performance isn't free — it's purchased with complexity.<br />
+              The real skill is knowing where to spend it.</strong
+            >
+          </p>
+
+          <p>
+            Dashboards often fail when teams oversimplify critical paths — and others fail for the
+            opposite reason: abstractions so layered they choke performance.
+          </p>
+
+          <p>The truth sits in the middle:</p>
+          <ul>
+            <li>Some complexity is leverage</li>
+            <li>Some complexity is debt</li>
+            <li>Most teams don't know the difference</li>
+          </ul>
+
+          <hr />
+
+          <h2>The Turning Point</h2>
+
+          <p>
+            The turning point is when you stop asking:<br />
+            <em>"How do we make this faster?"</em>
+          </p>
+
+          <p>
+            And start asking:<br />
+            <strong>"Where does performance actually matter?"</strong>
+          </p>
+
+          <hr />
+
+          <h2>Because in real‑time systems:</h2>
+
+          <h3>🔥 Worth the complexity:</h3>
+          <ul>
+            <li>A circular buffer is worth 10× the complexity</li>
+            <li>A batching layer is worth 20×</li>
+            <li>A stale‑detection pipeline is worth 50×</li>
+            <li>A handler architecture is worth 100×</li>
+          </ul>
+
+          <h3>✘ Complexity sinkholes:</h3>
+          <ul>
+            <li>A generic message factory</li>
+            <li>A hyper‑abstracted state machine</li>
+            <li>A premature micro‑optimization</li>
+          </ul>
+
+          <hr />
+
+          <h2>The Senior Engineer's Job</h2>
+
+          <p>
+            The senior engineer's job isn't to avoid complexity.<br />
+            <strong>It's to spend it where it compounds.</strong>
+          </p>
+
+          <p>In real‑time systems, that means:</p>
+          <ul>
+            <li>Bound everything</li>
+            <li>Batch everything</li>
+            <li>Measure everything</li>
+            <li>Treat failure as normal</li>
+            <li>Treat latency as physics</li>
+            <li>Treat complexity as capital</li>
+          </ul>
+
+          <hr />
+
+          <h2>The Real Test</h2>
+
+          <p>
+            Because when the market turns violent, your UI isn't judged by how elegant the code is.
+          </p>
+
+          <p>
+            It's judged by one thing:<br />
+            <strong>Does it keep up with reality?</strong>
+          </p>
+
+          <p>
+            And if it doesn't, the cost isn't a bug report.<br />
+            <strong>It's millions.</strong>
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

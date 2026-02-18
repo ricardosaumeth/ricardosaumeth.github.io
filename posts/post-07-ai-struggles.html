@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Where AI Struggles (and Why Senior Engineers Matter) — Ricardo Saumeth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>⭐ PART 3 — Where AI Struggles<br />(and Why Senior Engineers Matter)</h1>
+          </header>
+
+          <p>
+            <strong>AI accelerates — but it doesn't understand production.</strong><br />
+            It helped a lot — but it also missed things that only experience catches.
+          </p>
+
+          <hr />
+
+          <h2>Edge Cases</h2>
+
+          <p>
+            AI suggested basic heartbeat handling but missed a key nuance:
+            <strong>stale detection must be per‑channel, not global.</strong>
+          </p>
+
+          <p>
+            My initial implementation cleared all stale flags when any message arrived.<br />
+            That keeps the UI green — but it hides channel‑specific failures.
+          </p>
+
+          <p>
+            Bitfinex channels can fail independently, so each subscription needs its own stale
+            timer.
+          </p>
+
+          <p><strong>That's the kind of detail you only learn by shipping real systems.</strong></p>
+
+          <hr />
+
+          <h2>Performance Trade‑offs</h2>
+
+          <p>
+            AI defaulted to slice() everywhere.<br />
+            I knew splice() was better for high‑frequency, in‑place updates.
+          </p>
+
+          <hr />
+
+          <h2>API Quirks</h2>
+
+          <p>Bitfinex sends different formats for snapshots vs updates.</p>
+
+          <p>AI understood the idea, but not the exact formats — for example:</p>
+          <ul>
+            <li><strong>Snapshot:</strong> [channelId, [trade1, trade2]]</li>
+            <li><strong>Update:</strong> [channelId, 'te', trade]</li>
+          </ul>
+
+          <p>These quirks matter. They break your parser if you don't know them.</p>
+
+          <hr />
+
+          <h2>Memory Management</h2>
+
+          <p>AI didn't understand memory‑bounded arrays.</p>
+
+          <p>
+            Without limits, 8 hours of trading data becomes:<br />
+            <strong>288,000 updates × 10 pairs = a multi‑GB memory leak.</strong>
+          </p>
+
+          <p>The app enforces:</p>
+          <ul>
+            <li>MAX_TRADES = 1000</li>
+            <li>MAX_CANDLES = 5000</li>
+          </ul>
+
+          <p>This keeps memory stable at ~60MB instead of creeping past 2GB and crashing.</p>
+
+          <hr />
+
+          <h2>Production Concerns AI Didn't Consider</h2>
+
+          <ul>
+            <li>Handler‑based architecture (trades, tickers, candles, book)</li>
+            <li>90‑second stale timeouts with 30‑second monitoring intervals</li>
+            <li>Exponential backoff (5 attempts, increasing delays)</li>
+            <li>Performance tracking via performanceTracker.updateLatency()</li>
+            <li>Environment‑configurable limits (VITE_MAX_TRADES)</li>
+          </ul>
+
+          <p>
+            <strong
+              >These aren't "nice to haves" — they're what keep real‑time systems alive.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>The Reality</h2>
+
+          <p>Building a crypto trading dashboard made one thing clear:</p>
+
+          <p>
+            <strong
+              >AI is incredible at scaffolding — but production‑grade real‑time systems require
+              architectural judgment that only comes from experience.</strong
+            >
+          </p>
+
+          <p>
+            AI accelerates — but it doesn't understand production.<br />
+            That's where senior engineers still make the difference.
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

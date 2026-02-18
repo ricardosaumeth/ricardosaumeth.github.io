@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Market Orders vs Limit Orders — And How They Mutate Real‑Time UI State — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>🟦 Market Orders vs Limit Orders —<br />And How They Mutate Real‑Time UI State</h1>
+            <p>And why they behave completely differently in a trading UI</p>
+          </header>
+
+          <p>
+            Most explanations stop at "market = instant, limit = conditional."<br />
+            That's beginner‑level thinking.
+          </p>
+
+          <p>If you build real‑time trading systems, the real story is this:</p>
+
+          <p>
+            <strong
+              >👉 Market orders mutate state once.<br />
+              Limit orders mutate state continuously.</strong
+            >
+          </p>
+
+          <p>This single difference changes everything about how your UI behaves.</p>
+
+          <hr />
+
+          <h2>🔵 Market Order → Immediate State Mutation</h2>
+
+          <p>A market order is a one‑shot event.</p>
+
+          <p>
+            You're telling the exchange:<br />
+            <em>"Fill me now at the best available price."</em>
+          </p>
+
+          <p>There's no price condition, so the system reacts instantly:</p>
+          <ul>
+            <li>Liquidity is consumed</li>
+            <li>Bid/ask levels shift</li>
+            <li>A trade prints</li>
+            <li>Your position updates</li>
+            <li>PnL recalculates</li>
+            <li>The order disappears almost immediately</li>
+          </ul>
+
+          <p>
+            From a UI perspective, a market order is like a lightning strike —<br />
+            fast, destructive, and over in milliseconds.
+          </p>
+
+          <p>
+            <strong
+              >There's no long‑lived state to track.<br />
+              Just a burst of WebSocket‑driven updates.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>🔵 Limit Order → Long‑Lived Reactive State</h2>
+
+          <p>A limit order is completely different.</p>
+
+          <p>
+            You're saying:<br />
+            <em>"Fill me, but only at this price or better."</em>
+          </p>
+
+          <p>This creates a persistent entity in your UI:</p>
+          <ul>
+            <li>It sits in the order book</li>
+            <li>It may partially fill</li>
+            <li>It may never fill</li>
+            <li>It may become marketable</li>
+            <li>It may be cancelled</li>
+            <li>It may be replaced</li>
+            <li>It may fill hours later</li>
+          </ul>
+
+          <p>Your UI must subscribe to its lifecycle:</p>
+          <ul>
+            <li>Track remaining quantity</li>
+            <li>Track partial fills</li>
+            <li>Track queue position</li>
+            <li>Highlight user liquidity</li>
+            <li>Reconcile server truth vs client state</li>
+            <li>Handle optimistic updates + rollbacks</li>
+          </ul>
+
+          <p>
+            <strong
+              >A limit order isn't an event —<br />
+              it's a state machine.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>🟦 The Real Difference (from a system designer's perspective)</h2>
+
+          <h3>Market order → "fire and update"</h3>
+          <ul>
+            <li>One request</li>
+            <li>One execution</li>
+            <li>One UI refresh</li>
+            <li>No ongoing tracking</li>
+          </ul>
+
+          <h3>Limit order → "create and subscribe"</h3>
+          <ul>
+            <li>Create order</li>
+            <li>Track it over time</li>
+            <li>React to fills</li>
+            <li>React to cancellations</li>
+            <li>React to book movements</li>
+            <li>React to marketability</li>
+          </ul>
+
+          <p>
+            <strong
+              >This is why real‑time trading UIs are hard:<br />
+              you're not just rendering data — you're orchestrating state.</strong
+            >
+          </p>
+
+          <hr />
+
+          <h2>🟦 Why This Matters for Engineers</h2>
+
+          <p>
+            If you're building a trading dashboard, you must design around these two lifecycles:
+          </p>
+
+          <h3>Market orders → ephemeral events</h3>
+          <p>Fast, atomic, predictable.</p>
+
+          <h3>Limit orders → persistent, reactive entities</h3>
+          <p>Long‑lived, stateful, expensive.</p>
+
+          <p>
+            <strong
+              >Get this right, and your UI feels instant, stable, and trustworthy.<br />
+              Get it wrong, and traders lose confidence in your platform.</strong
+            >
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

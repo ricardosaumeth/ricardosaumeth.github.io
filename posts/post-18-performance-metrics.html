@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Performance Metrics for Real‑Time Trading Apps: What Every Developer Should Know — Ricardo
+      Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <div data-component="nav" data-base-path="../"></div>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              Performance Metrics for Real‑Time Trading Apps:<br />What Every Developer Should Know
+            </h1>
+          </header>
+
+          <p>
+            Building a cryptocurrency trading dashboard taught me something important: traditional
+            web performance metrics don't capture what truly matters in real‑time applications.
+          </p>
+
+          <p>
+            If you're building trading platforms, dashboards, or anything driven by live data, you
+            need a different mental model.
+          </p>
+
+          <hr />
+
+          <h2>🎯 The Problem with Traditional Metrics</h2>
+
+          <p>Most developers rely on Google's Core Web Vitals:</p>
+          <ul>
+            <li>First Input Delay (FID) – Time from click to response</li>
+            <li>Largest Contentful Paint (LCP) – When main content appears</li>
+            <li>Time to Interactive (TTI) – When the page becomes usable</li>
+          </ul>
+
+          <p>
+            These are great for content‑driven apps — but they completely miss the biggest
+            bottleneck in real‑time systems:
+          </p>
+
+          <p><strong>👉 Data processing latency</strong></p>
+
+          <p>
+            This is the delay between receiving market data and updating the UI. In trading, that
+            delay is the user experience.
+          </p>
+
+          <hr />
+
+          <h2>⚡ Performance Targets for Trading Apps</h2>
+
+          <ul>
+            <li><strong>Excellent:</strong> &lt; 5ms (HFT level)</li>
+            <li><strong>Good:</strong> 10–30ms (Professional)</li>
+            <li><strong>Poor:</strong> &gt; 50ms (users feel this delay)</li>
+          </ul>
+
+          <p>
+            These performance targets aren't arbitrary. They're grounded in human‑computer
+            interaction research, real‑time UI benchmarks, and industry expectations across trading
+            platforms.
+          </p>
+
+          <hr />
+
+          <h2>🔍 The Latency Breakdown</h2>
+
+          <h3>Network Latency (20–100ms)</h3>
+          <ul>
+            <li>❌ Mostly uncontrollable</li>
+            <li>❌ Depends on geography + ISP</li>
+            <li>❌ Doesn't reflect actual UI responsiveness</li>
+          </ul>
+
+          <h3>Data Processing Latency (1–50ms)</h3>
+          <ul>
+            <li>✅ Fully controllable</li>
+            <li>✅ Directly impacts user decisions</li>
+            <li>✅ Provides actionable insights</li>
+          </ul>
+
+          <p><strong>This is where real‑time engineers should focus.</strong></p>
+
+          <hr />
+
+          <h2>📊 Key Insights for Real‑Time Apps</h2>
+
+          <h3>Performance Priority Order</h3>
+          <ol>
+            <li>Data Processing Latency — How fast you handle incoming data</li>
+            <li>Memory Management — Prevent long‑session crashes</li>
+            <li>Update Rate (FPS) — Smooth charts and animations</li>
+            <li>Connection Health — WebSocket stability</li>
+            <li>Traditional Web Vitals — Still useful, but secondary</li>
+          </ol>
+
+          <hr />
+
+          <h2>🧹 Memory Leak Prevention</h2>
+
+          <p>Avoid unbounded arrays:</p>
+
+          <pre><code>// ❌ Bad — grows forever
+setTrades(prev => [...prev, newTrade]);
+
+// ✅ Good — keep a fixed window
+const MAX_TRADES = 1000;
+
+setTrades(prev => {
+  const updated = [...prev, newTrade];
+  return updated.slice(-MAX_TRADES);
+});</code></pre>
+
+          <p>This alone can prevent multi‑hour session crashes.</p>
+
+          <hr />
+
+          <h2>🎯 Where Optimizations Actually Pay Off</h2>
+
+          <h3>Low ROI (Network‑level)</h3>
+          <ul>
+            <li>Better hosting</li>
+            <li>CDN</li>
+            <li>Geographic proximity</li>
+          </ul>
+          <p>➡️ Helps a bit, but expensive and capped (~50ms improvement)</p>
+
+          <h3>High ROI (App‑level)</h3>
+          <ul>
+            <li>Use performance.now() for profiling</li>
+            <li>Optimize JSON parsing</li>
+            <li>Efficient state updates</li>
+            <li>Move heavy work to Web Workers</li>
+            <li>Virtualize large lists</li>
+          </ul>
+          <p>➡️ High impact, low cost, often &gt;100ms saved</p>
+
+          <hr />
+
+          <h2>💡 Key Takeaway</h2>
+
+          <p>
+            You can't improve what you don't measure — but in real‑time systems, measure what
+            actually affects your users, not just what's easy to track.
+          </p>
+
+          <p>
+            <strong
+              >👉 Data processing latency is the metric you control — and the one that directly
+              impacts trading decisions.</strong
+            >
+          </p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <ul class="actions special"></ul>
+        </section>
+      </div>
+
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

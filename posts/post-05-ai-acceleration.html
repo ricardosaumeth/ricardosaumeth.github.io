@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      How Senior Front‑End Engineers Use AI to Accelerate Real‑Time UI Development — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <div data-component="nav" data-base-path="../"></div>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>
+              ⭐ PART 1 — How Senior Front‑End Engineers<br />Use AI to Accelerate Real‑Time UI
+              Development
+            </h1>
+            <p>A case study from building a production‑grade cryptocurrency trading dashboard</p>
+          </header>
+
+          <p>Real‑time UIs behave nothing like typical React apps.</p>
+
+          <p>
+            When I built CryptoApp — a live trading dashboard with WebSockets, candlesticks, and
+            order books — I hit challenges that only appear in long‑running, high‑frequency systems:
+          </p>
+
+          <ul>
+            <li>60+ updates/sec across multiple channels</li>
+            <li>Memory pressure that grows silently over hours</li>
+            <li>Reconnection logic + stale‑subscription detection</li>
+            <li>FPS / latency / memory monitoring</li>
+            <li>Handler‑based architecture to stay modular</li>
+          </ul>
+
+          <p>
+            Traditionally, building a system like this takes months.<br />
+            With AI as a thinking partner, I compressed it into a few focused weeks — not because AI
+            did the work, but because it accelerated the repetitive parts and helped me validate
+            ideas faster.
+          </p>
+
+          <p><strong>This is how I used AI as a force multiplier.</strong></p>
+
+          <hr />
+
+          <h2>1. Architecture Design: AI as Your Thinking Partner</h2>
+
+          <p>
+            Real‑time systems need careful architecture. Poor decisions early → performance issues
+            later.
+          </p>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "I'm building a real‑time trading UI with WebSocket streams for trades, candles, order
+            books, and tickers. I need:
+            <ul>
+              <li>Modular message handling</li>
+              <li>Memory‑bounded arrays</li>
+              <li>Redux Toolkit integration</li>
+              <li>Performance monitoring</li>
+            </ul>
+            Suggest an architecture that scales."
+          </blockquote>
+
+          <h3>AI suggested:</h3>
+          <ul>
+            <li>Handler‑based message processing</li>
+            <li>WebSocket middleware</li>
+            <li>Performance tracker service</li>
+            <li>Memory bounds at reducer level</li>
+          </ul>
+
+          <p>
+            <strong>Result:</strong> Clean separation of concerns.<br />
+            <strong>Time saved:</strong> ~2–3 days.
+          </p>
+
+          <hr />
+
+          <h2>2. Memory Management: AI Explains the 'Why'</h2>
+
+          <p>
+            Real‑time apps accumulate data. Without bounds, arrays grow from 1,000 → 100,000 →
+            crash.
+          </p>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "Explain memory‑bounded arrays for real‑time systems. Show the math of unbounded growth
+            and implementation patterns."
+          </blockquote>
+
+          <h3>AI generated documentation covering:</h3>
+          <ul>
+            <li>60 updates/min × 8 hours = 28,800 objects</li>
+            <li>Memory impact: 50MB → 2GB → crash</li>
+            <li>Why splice() beats slice()</li>
+          </ul>
+
+          <p>I implemented a reducer that keeps only the latest N trades.</p>
+
+          <p><strong>Time saved:</strong> ~1 week.</p>
+
+          <hr />
+
+          <h2>3. Performance Monitoring: AI Writes the Boilerplate</h2>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "Create a React hook that monitors FPS, memory usage, data latency, and connection
+            health."
+          </blockquote>
+
+          <h3>AI generated a usePerformanceMonitor hook that:</h3>
+          <ul>
+            <li>Tracks FPS</li>
+            <li>Samples memory</li>
+            <li>Exposes metrics for the UI</li>
+          </ul>
+
+          <p><strong>Time saved:</strong> ~4–6 hours.</p>
+
+          <hr />
+
+          <h2>4. WebSocket Middleware: AI Handles the Complexity (Mostly)</h2>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "Create Redux middleware that parses WebSocket messages, routes to handlers, tracks
+            performance, and handles heartbeats + stale detection."
+          </blockquote>
+
+          <p>AI produced a solid skeleton that I refined for Bitfinex quirks.</p>
+
+          <p><strong>Time saved:</strong> ~1–2 days.</p>
+
+          <hr />
+
+          <h2>5. Documentation: AI as Technical Writer</h2>
+
+          <h3>Prompt:</h3>
+          <blockquote>
+            "Write comprehensive documentation explaining memory‑bounded arrays, growth math,
+            patterns, pitfalls, and testing strategies."
+          </blockquote>
+
+          <p><strong>Time saved:</strong> ~6–8 hours.</p>
+
+          <hr />
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <!-- Dynamic navigation will be inserted here -->
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>
