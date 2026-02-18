@@ -1,189 +1,230 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Three Metrics That Matter More Than Core Web Vitals — Ricardo Saumeth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
 
-<head>
-  <title>Three Metrics That Matter More Than Core Web Vitals — Ricardo Saumeth</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-</head>
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
 
-<body class="is-preload">
-
-  <div id="wrapper">
-
-    <!-- Header -->
-    <header id="header">
-      <a href="../index.html" class="logo">Ricardo Saumeth</a>
-    </header>
-
-    <!-- Nav -->
-    <nav id="nav">
-      <ul class="links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../book.html">Book</a></li>
-        <li><a href="../course.html">Course</a></li>
-        <li><a href="../library.html">Real‑Time React</a></li>
-        <li class="active"><a href="../blog.html">Blog</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-      </ul>
-      <ul class="icons">
-        <li><a href="https://github.com/ricardosaumeth" class="icon brands fa-github"></a></li>
-        <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands fa-linkedin"></a></li>
-      </ul>
-    </nav>
-
-    <!-- Main -->
-    <div id="main">
-
-      <section class="post">
-        <header class="major">
-          <span class="date">February 2026</span>
-          <h1>Three Metrics That Matter More<br />Than Core Web Vitals in Trading Apps</h1>
-        </header>
-
-        <p>Most web apps live and die by Core Web Vitals. Trading apps don’t.</p>
-
-        <p>After building CryptoApp, a real‑time cryptocurrency dashboard, I realised something uncomfortable:</p>
-
-        <p><strong>You can score perfectly on Core Web Vitals and still deliver a terrible trading experience.</strong></p>
-
-        <p>Why? Because Core Web Vitals measure page load. Trading apps are long‑running, real‑time systems where users stare at live data for hours.</p>
-
-        <p>Here are the metrics that actually matter.</p>
-
-        <hr />
-
-        <h2>⚡ Data Processing Latency (Most Critical)</h2>
-
-        <p><strong>What it measures:</strong><br />
-        Time from receiving market data → to completing the UI update.</p>
-
-        <p><strong>Why it matters:</strong><br />
-        This is the metric traders feel. If your UI lags behind the market, trust disappears instantly.</p>
-
-        <p><strong>Targets:</strong></p>
-        <ul>
-          <li>Excellent: &lt; 5ms</li>
-          <li>Good: &lt; 20ms</li>
-          <li>Poor: &gt; 50ms</li>
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../book.html">Book</a></li>
+          <li><a href="../course.html">Course</a></li>
+          <li><a href="../library.html">Real‑Time React</a></li>
+          <li class="active"><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
-
-        <p>In CryptoApp, reducing latency from 47ms → 0.47ms completely changed how “real‑time” the app felt.</p>
-
-        <span class="image fit"><img src="../images/metrics.jpg" alt="Latency Metrics" /></span>
-
-        <hr />
-
-        <h2>📡 Connection Health Score</h2>
-
-        <p><strong>What it measures:</strong><br />
-        The reliability and freshness of your WebSocket connection.</p>
-
-        <p><strong>Why it matters:</strong><br />
-        Stale data is worse than slow data. A trader making decisions on outdated prices is a disaster.</p>
-
-        <p><strong>A meaningful health score tracks:</strong></p>
-        <ul>
-          <li>Latency</li>
-          <li>Missed heartbeats</li>
-          <li>Reconnect attempts</li>
-          <li>Data freshness</li>
-          <li>Time since last update</li>
+        <ul class="icons">
+          <li><a href="https://github.com/ricardosaumeth" class="icon brands fa-github"></a></li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
+              class="icon brands fa-linkedin"
+            ></a>
+          </li>
         </ul>
+      </nav>
 
-        <hr />
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>Three Metrics That Matter More<br />Than Core Web Vitals in Trading Apps</h1>
+          </header>
 
-        <h2>🧠 Memory Stability Index</h2>
+          <p>Most web apps live and die by Core Web Vitals. Trading apps don’t.</p>
 
-        <p><strong>What it measures:</strong><br />
-        How memory usage grows during long trading sessions.</p>
+          <p>
+            After building CryptoApp, a real‑time cryptocurrency dashboard, I realised something
+            uncomfortable:
+          </p>
 
-        <p><strong>Why it matters:</strong><br />
-        Trading apps stay open for hours. A slow memory leak becomes a crash at the worst possible moment.</p>
+          <p>
+            <strong
+              >You can score perfectly on Core Web Vitals and still deliver a terrible trading
+              experience.</strong
+            >
+          </p>
 
-        <p><strong>Interpretation:</strong></p>
-        <ul>
-          <li>90–100: Stable</li>
-          <li>70–89: Slight growth</li>
-          <li>50–69: Concerning</li>
-          <li>&lt; 50: Leak detected</li>
-        </ul>
+          <p>
+            Why? Because Core Web Vitals measure page load. Trading apps are long‑running, real‑time
+            systems where users stare at live data for hours.
+          </p>
 
-        <hr />
+          <p>Here are the metrics that actually matter.</p>
 
-        <h2>📈 The Results</h2>
+          <hr />
 
-        <p>Industry research from Google, Amazon, and Akamai shows that improving real‑time responsiveness leads to:</p>
+          <h2>⚡ Data Processing Latency (Most Critical)</h2>
 
-        <ul>
-          <li>25–40% longer session duration</li>
-          <li>50–70% fewer performance‑related support tickets</li>
-          <li>15–30% higher engagement</li>
-        </ul>
+          <p>
+            <strong>What it measures:</strong><br />
+            Time from receiving market data → to completing the UI update.
+          </p>
 
-        <hr />
+          <p>
+            <strong>Why it matters:</strong><br />
+            This is the metric traders feel. If your UI lags behind the market, trust disappears
+            instantly.
+          </p>
 
-        <h2>🔑 Key Takeaways</h2>
+          <p><strong>Targets:</strong></p>
+          <ul>
+            <li>Excellent: &lt; 5ms</li>
+            <li>Good: &lt; 20ms</li>
+            <li>Poor: &gt; 50ms</li>
+          </ul>
 
-        <ul>
-          <li>Context matters: Trading apps ≠ marketing sites</li>
-          <li>Consistency beats speed: Real‑time ≠ real‑fast</li>
-          <li>Measure what users feel: Not what Lighthouse scores</li>
-          <li>Monitor continuously: These apps run for hours, not seconds</li>
-        </ul>
+          <p>
+            In CryptoApp, reducing latency from 47ms → 0.47ms completely changed how “real‑time” the
+            app felt.
+          </p>
 
-        <p><strong>Written by Ricardo Saumeth<br />
-        Senior Front‑End Engineer | Real‑Time UI Specialist</strong></p>
+          <span class="image fit"><img src="../images/metrics.jpg" alt="Latency Metrics" /></span>
 
-        <!-- Navigation Buttons -->
-        <ul class="actions special">
-          <li><a href="post-real-time-hard-problems.html" class="button">← Previous Post</a></li>
-          <li><a href="post-react-high-frequency-architecture.html" class="button">Next Post →</a></li>
-          <li><a href="../blog.html" class="button">Back to Blog</a></li>
-        </ul>
+          <hr />
 
-      </section>
+          <h2>📡 Connection Health Score</h2>
 
-    </div>
+          <p>
+            <strong>What it measures:</strong><br />
+            The reliability and freshness of your WebSocket connection.
+          </p>
 
-    <!-- Footer -->
-    <footer id="footer">
-      <section class="split contact">
-        <section>
-          <h3>Email</h3>
-          <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
-        </section>
-        <section>
-          <h3>Links</h3>
-          <ul class="icons alt">
-            <li><a href="https://github.com/ricardosaumeth" class="icon brands alt fa-github"></a></li>
-            <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands alt fa-linkedin"></a></li>
+          <p>
+            <strong>Why it matters:</strong><br />
+            Stale data is worse than slow data. A trader making decisions on outdated prices is a
+            disaster.
+          </p>
+
+          <p><strong>A meaningful health score tracks:</strong></p>
+          <ul>
+            <li>Latency</li>
+            <li>Missed heartbeats</li>
+            <li>Reconnect attempts</li>
+            <li>Data freshness</li>
+            <li>Time since last update</li>
+          </ul>
+
+          <hr />
+
+          <h2>🧠 Memory Stability Index</h2>
+
+          <p>
+            <strong>What it measures:</strong><br />
+            How memory usage grows during long trading sessions.
+          </p>
+
+          <p>
+            <strong>Why it matters:</strong><br />
+            Trading apps stay open for hours. A slow memory leak becomes a crash at the worst
+            possible moment.
+          </p>
+
+          <p><strong>Interpretation:</strong></p>
+          <ul>
+            <li>90–100: Stable</li>
+            <li>70–89: Slight growth</li>
+            <li>50–69: Concerning</li>
+            <li>&lt; 50: Leak detected</li>
+          </ul>
+
+          <hr />
+
+          <h2>📈 The Results</h2>
+
+          <p>
+            Industry research from Google, Amazon, and Akamai shows that improving real‑time
+            responsiveness leads to:
+          </p>
+
+          <ul>
+            <li>25–40% longer session duration</li>
+            <li>50–70% fewer performance‑related support tickets</li>
+            <li>15–30% higher engagement</li>
+          </ul>
+
+          <hr />
+
+          <h2>🔑 Key Takeaways</h2>
+
+          <ul>
+            <li>Context matters: Trading apps ≠ marketing sites</li>
+            <li>Consistency beats speed: Real‑time ≠ real‑fast</li>
+            <li>Measure what users feel: Not what Lighthouse scores</li>
+            <li>Monitor continuously: These apps run for hours, not seconds</li>
+          </ul>
+
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
+
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <li><a href="post-real-time-hard-problems.html" class="button">← Previous Post</a></li>
+            <li>
+              <a href="post-react-high-frequency-architecture.html" class="button">Next Post →</a>
+            </li>
+            <li><a href="../blog.html" class="button">Back to Blog</a></li>
           </ul>
         </section>
-      </section>
-    </footer>
+      </div>
 
-    <div id="copyright">
-      <ul>
-        <li>© 2026 Ricardo Saumeth</li>
-        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-      </ul>
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
+          </section>
+          <section>
+            <h3>Links</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="https://github.com/ricardosaumeth" class="icon brands alt fa-github"></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
+                  class="icon brands alt fa-linkedin"
+                ></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>© 2026 Ricardo Saumeth</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
     </div>
 
-  </div>
-
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="../assets/js/jquery.scrollex.min.js"></script>
-  <script src="../assets/js/jquery.scrolly.min.js"></script>
-  <script src="../assets/js/browser.min.js"></script>
-  <script src="../assets/js/breakpoints.min.js"></script>
-  <script src="../assets/js/util.js"></script>
-  <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/post-nav.js"></script>
-
-</body>
-
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
 </html>

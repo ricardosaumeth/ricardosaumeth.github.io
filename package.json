@@ -1,0 +1,11 @@
+{
+  "name": "ricardo-saumeth-website",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "format": "prettier --write \"**/*.{html,css,js,json}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  }
+}

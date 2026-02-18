@@ -24,7 +24,7 @@ function renderBlogPosts(page = 1) {
   const postsContainer = document.querySelector('.posts');
   postsContainer.innerHTML = '';
 
-  postsToShow.forEach(post => {
+  postsToShow.forEach((post) => {
     const postUrl = post.file;
     const article = `
       <article>
@@ -56,7 +56,7 @@ function renderBlogPosts(page = 1) {
 
 function renderPagination(currentPage, totalPages) {
   const paginationContainer = document.getElementById('pagination');
-  
+
   if (totalPages <= 1) {
     paginationContainer.innerHTML = '';
     return;
@@ -83,7 +83,7 @@ function renderPagination(currentPage, totalPages) {
   paginationHTML += '</ul>';
   paginationContainer.innerHTML = paginationHTML;
 
-  document.querySelectorAll('.pagination a').forEach(link => {
+  document.querySelectorAll('.pagination a').forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const page = parseInt(e.target.getAttribute('data-page'));

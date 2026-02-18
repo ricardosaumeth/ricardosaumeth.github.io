@@ -1,100 +1,57 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Blog — Ricardo Saumeth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+  </head>
 
-<head>
-  <title>Blog — Ricardo Saumeth</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="assets/css/custom.css" />
-  <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css" />
-  </noscript>
-</head>
-
-<body class="is-preload">
-
-  <div id="wrapper">
-
-    <!-- Header -->
-    <header id="header">
-      <a href="index.html" class="logo">Ricardo Saumeth</a>
-    </header>
-
-    <!-- Nav -->
-    <nav id="nav">
-      <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="book.html">Book</a></li>
-        <li><a href="course.html">Course</a></li>
-        <li><a href="library.html">Real‑Time React</a></li>
-        <li class="active"><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <ul class="icons">
-        <li><a href="https://github.com/ricardosaumeth" target="_blank" rel="noopener noreferrer"
-            class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-        <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" target="_blank" rel="noopener noreferrer"
-            class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-      </ul>
-    </nav>
-
-    <!-- Main -->
-    <div id="main">
-
-      <header class="major">
-        <h1>Blog</h1>
-        <p>Articles on real‑time UI engineering, systems architecture, performance, and technical authorship.</p>
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ricardo Saumeth</a>
       </header>
 
-      <section class="posts">
-        <!-- Posts will be dynamically loaded here -->
-      </section>
+      <!-- Nav -->
+      <div data-component="nav"></div>
 
-      <!-- Pagination -->
-      <div id="pagination"></div>
+      <!-- Main -->
+      <div id="main">
+        <header class="major">
+          <h1>Blog</h1>
+          <p>
+            Articles on real‑time UI engineering, systems architecture, performance, and technical
+            authorship.
+          </p>
+        </header>
 
+        <section class="posts">
+          <!-- Posts will be dynamically loaded here -->
+        </section>
+
+        <!-- Pagination -->
+        <div id="pagination"></div>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer"></div>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer">
-      <section class="split contact">
-        <section>
-          <h3>Email</h3>
-          <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
-        </section>
-        <section>
-          <h3>Links</h3>
-          <ul class="icons alt">
-            <li><a href="https://github.com/ricardosaumeth" target="_blank" rel="noopener noreferrer"
-                class="icon brands alt fa-github"></a></li>
-            <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" target="_blank"
-                rel="noopener noreferrer" class="icon brands alt fa-linkedin"></a></li>
-          </ul>
-        </section>
-      </section>
-    </footer>
-
-    <div id="copyright">
-      <ul>
-        <li>© 2026 Ricardo Saumeth</li>
-        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.scrollex.min.js"></script>
-  <script src="assets/js/jquery.scrolly.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/blog.js"></script>
-
-</body>
-
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/blog.js"></script>
+  </body>
 </html>

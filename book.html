@@ -1,216 +1,167 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
   Massively by HTML5 UP
   html5up.net | @ajlkn
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+  <head>
+    <title>Book — Real‑Time UI Engineering</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+  </head>
 
-<head>
-  <title>Book — Real‑Time UI Engineering</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css" />
-  </noscript>
-</head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Ricardo Saumeth</a>
+      </header>
 
-<body class="is-preload">
+      <!-- Nav -->
+      <div data-component="nav"></div>
 
-  <!-- Wrapper -->
-  <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <!-- Book Header -->
+        <section class="post">
+          <header class="major">
+            <span class="date">Book in Progress</span>
+            <h1>
+              Real‑Time UI Engineering:<br />
+              High‑Frequency Systems, Performance,<br />
+              and AI‑Native Development
+            </h1>
+            <p>
+              A technical book on building real‑time, high‑frequency, and latency‑aware interfaces,
+              with a focus on performance, scheduling, and AI‑native development patterns.
+            </p>
+          </header>
 
-    <!-- Header -->
-    <header id="header">
-      <a href="index.html" class="logo">Ricardo Saumeth</a>
-    </header>
+          <!-- Book Cover -->
+          <div class="image main">
+            <img src="images/book-cover.png" alt="Real-Time UI Engineering Book Cover" />
+          </div>
 
-    <!-- Nav -->
-    <nav id="nav">
-      <ul class="links">
-        <li><a href="index.html">Home</a></li>
-        <li class="active"><a href="book.html">Book</a></li>
-        <li><a href="course.html">Course</a></li>
-        <li><a href="library.html">Real‑Time React</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <ul class="icons">
-        <li><a href="https://github.com/ricardosaumeth" class="icon brands fa-github"><span
-              class="label">GitHub</span></a></li>
-        <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands fa-linkedin"><span
-              class="label">LinkedIn</span></a></li>
-      </ul>
-    </nav>
-
-    <!-- Main -->
-    <div id="main">
-
-      <!-- Book Header -->
-      <section class="post">
-        <header class="major">
-          <span class="date">Book in Progress</span>
-          <h1>
-            Real‑Time UI Engineering:<br />
-            High‑Frequency Systems, Performance,<br />
-            and AI‑Native Development
-          </h1>
+          <!-- Overview -->
+          <h2>Overview</h2>
           <p>
-            A technical book on building real‑time, high‑frequency, and latency‑aware interfaces,
-            with a focus on performance, scheduling, and AI‑native development patterns.
+            This book explores the architecture, patterns, and engineering principles behind
+            real‑time user interfaces. It focuses on high‑frequency data ingestion, scheduling,
+            rendering pipelines, performance constraints, and the emerging role of AI‑native systems
+            in UI engineering.
           </p>
-        </header>
 
-        <!-- Book Cover -->
-        <div class="image main">
-          <img src="images/book-cover.png" alt="Real-Time UI Engineering Book Cover" />
-        </div>
+          <!-- Table of Contents -->
+          <!-- Table of Contents -->
+          <h2>Table of Contents</h2>
 
-        <!-- Overview -->
-        <h2>Overview</h2>
-        <p>
-          This book explores the architecture, patterns, and engineering principles behind
-          real‑time user interfaces. It focuses on high‑frequency data ingestion, scheduling,
-          rendering pipelines, performance constraints, and the emerging role of AI‑native
-          systems in UI engineering.
-        </p>
+          <h3>PART I — Foundations of Real‑Time UI Engineering</h3>
+          <ul>
+            <li>Why real‑time UIs behave like systems</li>
+            <li>High‑frequency frontends and industry blind spots</li>
+            <li>Mental models for real‑time thinking</li>
+            <li>Latency, correctness, and failure patterns</li>
+          </ul>
 
-        <!-- Table of Contents -->
-        <!-- Table of Contents -->
-        <h2>Table of Contents</h2>
+          <h3>PART II — Financial Domain Primitives</h3>
+          <ul>
+            <li>Currency pair mechanics</li>
+            <li>RFQ protocols and execution races</li>
+          </ul>
 
-        <h3>PART I — Foundations of Real‑Time UI Engineering</h3>
-        <ul>
-          <li>Why real‑time UIs behave like systems</li>
-          <li>High‑frequency frontends and industry blind spots</li>
-          <li>Mental models for real‑time thinking</li>
-          <li>Latency, correctness, and failure patterns</li>
-        </ul>
+          <h3>PART III — Real‑Time Data Architecture</h3>
+          <ul>
+            <li>Dataflow mental models</li>
+            <li>WebSocket middleware</li>
+            <li>Handler patterns</li>
+            <li>Subscription lifecycle</li>
+            <li>Memory‑bounded design</li>
+          </ul>
 
-        <h3>PART II — Financial Domain Primitives</h3>
-        <ul>
-          <li>Currency pair mechanics</li>
-          <li>RFQ protocols and execution races</li>
-        </ul>
+          <h3>PART IV — State Management for High‑Frequency Systems</h3>
+          <ul>
+            <li>Deterministic state machines</li>
+            <li>Domain‑driven Redux</li>
+            <li>Selector performance</li>
+            <li>Async concurrency patterns</li>
+          </ul>
 
-        <h3>PART III — Real‑Time Data Architecture</h3>
-        <ul>
-          <li>Dataflow mental models</li>
-          <li>WebSocket middleware</li>
-          <li>Handler patterns</li>
-          <li>Subscription lifecycle</li>
-          <li>Memory‑bounded design</li>
-        </ul>
+          <h3>PART V — Performance Engineering</h3>
+          <ul>
+            <li>Metrics that matter</li>
+            <li>FPS and render‑budget discipline</li>
+            <li>Batching strategies</li>
+            <li>React performance patterns</li>
+            <li>Grid optimization</li>
+          </ul>
 
-        <h3>PART IV — State Management for High‑Frequency Systems</h3>
-        <ul>
-          <li>Deterministic state machines</li>
-          <li>Domain‑driven Redux</li>
-          <li>Selector performance</li>
-          <li>Async concurrency patterns</li>
-        </ul>
+          <h3>PART VI — Component Architecture & UI Patterns</h3>
+          <ul>
+            <li>Designing components for continuous updates</li>
+            <li>Real‑time hooks and widgets</li>
+            <li>Visual feedback patterns</li>
+            <li>Defensive UI engineering</li>
+          </ul>
 
-        <h3>PART V — Performance Engineering</h3>
-        <ul>
-          <li>Metrics that matter</li>
-          <li>FPS and render‑budget discipline</li>
-          <li>Batching strategies</li>
-          <li>React performance patterns</li>
-          <li>Grid optimization</li>
-        </ul>
+          <h3>PART VII — Advanced Performance & Scaling</h3>
+          <ul>
+            <li>Web Workers</li>
+            <li>Real‑time monitoring</li>
+            <li>Debugging high‑frequency systems</li>
+          </ul>
 
-        <h3>PART VI — Component Architecture & UI Patterns</h3>
-        <ul>
-          <li>Designing components for continuous updates</li>
-          <li>Real‑time hooks and widgets</li>
-          <li>Visual feedback patterns</li>
-          <li>Defensive UI engineering</li>
-        </ul>
+          <h3>PART VIII — Production Engineering</h3>
+          <ul>
+            <li>Testing real‑time systems</li>
+            <li>Chaos and burst testing</li>
+            <li>Observability</li>
+            <li>Security and compliance</li>
+          </ul>
 
-        <h3>PART VII — Advanced Performance & Scaling</h3>
-        <ul>
-          <li>Web Workers</li>
-          <li>Real‑time monitoring</li>
-          <li>Debugging high‑frequency systems</li>
-        </ul>
+          <h3>PART IX — AI‑Accelerated Development</h3>
+          <ul>
+            <li>How senior engineers use AI to build UIs 10× faster</li>
+            <li>Where AI fails in real‑time systems</li>
+          </ul>
 
-        <h3>PART VIII — Production Engineering</h3>
-        <ul>
-          <li>Testing real‑time systems</li>
-          <li>Chaos and burst testing</li>
-          <li>Observability</li>
-          <li>Security and compliance</li>
-        </ul>
+          <!-- Progress -->
+          <h2>Progress</h2>
+          <p>Current status: <strong>Writing & Architecture Phase</strong></p>
+          <div style="background: #ddd; height: 20px; border-radius: 4px">
+            <div style="width: 35%; height: 100%; background: #3b82f6; border-radius: 4px"></div>
+          </div>
+          <p style="margin-top: 0.5rem">~22% complete</p>
 
-        <h3>PART IX — AI‑Accelerated Development</h3>
-        <ul>
-          <li>How senior engineers use AI to build UIs 10× faster</li>
-          <li>Where AI fails in real‑time systems</li>
-        </ul>
-
-        <!-- Progress -->
-        <h2>Progress</h2>
-        <p>Current status: <strong>Writing & Architecture Phase</strong></p>
-        <div style="background:#ddd; height:20px; border-radius:4px;">
-          <div style="width:35%; height:100%; background:#3b82f6; border-radius:4px;"></div>
-        </div>
-        <p style="margin-top:0.5rem;">~22% complete</p>
-
-        <!-- Updates -->
-        <h2>Get Updates</h2>
-        <p>
-          Want to follow the writing process and get early access to chapters?
-          Subscribe to updates below.
-        </p>
-        <ul class="actions">
-          <li><a href="contact.html" class="button">Contact Me</a></li>
-        </ul>
-
-      </section>
-
-    </div>
-
-    <!-- Footer -->
-    <footer id="footer">
-      <section class="split contact">
-        <section>
-          <h3>Email</h3>
-          <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
-        </section>
-        <section>
-          <h3>Links</h3>
-          <ul class="icons alt">
-            <li><a href="https://github.com/ricardosaumeth" target="_blank" rel="noopener noreferrer"
-                class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-            <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" target="_blank"
-                rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          <!-- Updates -->
+          <h2>Get Updates</h2>
+          <p>
+            Want to follow the writing process and get early access to chapters? Subscribe to
+            updates below.
+          </p>
+          <ul class="actions">
+            <li><a href="contact.html" class="button">Contact Me</a></li>
           </ul>
         </section>
-      </section>
-    </footer>
+      </div>
 
-    <!-- Copyright -->
-    <div id="copyright">
-      <ul>
-        <li>© 2026 Ricardo Saumeth</li>
-        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-      </ul>
+      <!-- Footer -->
+      <div data-component="footer"></div>
     </div>
 
-  </div>
-
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery.scrollex.min.js"></script>
-  <script src="assets/js/jquery.scrolly.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

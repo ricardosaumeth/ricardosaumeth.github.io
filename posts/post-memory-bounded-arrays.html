@@ -1,234 +1,256 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Memory‑Bounded Arrays in Real‑Time UIs — Ricardo Saumeth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+  </head>
 
-<head>
-  <title>Memory‑Bounded Arrays in Real‑Time UIs — Ricardo Saumeth</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="../assets/css/main.css" />
-  <noscript>
-    <link rel="stylesheet" href="../assets/css/noscript.css" />
-  </noscript>
-</head>
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
 
-<body class="is-preload">
-
-  <div id="wrapper">
-
-    <!-- Header -->
-    <header id="header">
-      <a href="../index.html" class="logo">Ricardo Saumeth</a>
-    </header>
-
-    <!-- Nav -->
-    <nav id="nav">
-      <ul class="links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../book.html">Book</a></li>
-        <li><a href="../course.html">Course</a></li>
-        <li><a href="../library.html">Real‑Time React</a></li>
-        <li class="active"><a href="../blog.html">Blog</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-      </ul>
-      <ul class="icons">
-        <li><a href="https://github.com/ricardosaumeth" class="icon brands fa-github"></a></li>
-        <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands fa-linkedin"></a></li>
-      </ul>
-    </nav>
-
-    <!-- Main -->
-    <div id="main">
-
-      <section class="post">
-        <header class="major">
-          <span class="date">February 2026</span>
-          <h1>Memory‑Bounded Arrays<br />for Real‑Time Trading UIs</h1>
-        </header>
-
-        <p>Real‑time applications behave very differently from typical web apps.
-          A normal React app might fetch data once, store a few dozen items, and never grow beyond that.</p>
-
-        <p>A real‑time trading UI is the opposite:</p>
-
-        <ul>
-          <li>⚡ Trades stream in continuously</li>
-          <li>📈 Order books update dozens of times per second</li>
-          <li>🕒 Candles accumulate every minute</li>
-          <li>🖥️ The app stays open for hours — sometimes entire trading sessions</li>
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../book.html">Book</a></li>
+          <li><a href="../course.html">Course</a></li>
+          <li><a href="../library.html">Real‑Time React</a></li>
+          <li class="active"><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
-
-        <p>If you store every update forever, your arrays grow like this:</p>
-
-        <ul>
-          <li>1 minute → 1,200 updates</li>
-          <li>1 hour → 72,000 updates</li>
-          <li>4 hours → 288,000 updates</li>
-          <li>8 hours → 576,000 updates</li>
+        <ul class="icons">
+          <li><a href="https://github.com/ricardosaumeth" class="icon brands fa-github"></a></li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
+              class="icon brands fa-linkedin"
+            ></a>
+          </li>
         </ul>
+      </nav>
 
-        <p>And that’s per currency pair.
-          Track 10 pairs and you’re easily in the millions of objects.</p>
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>Memory‑Bounded Arrays<br />for Real‑Time Trading UIs</h1>
+          </header>
 
-        <p>At that point:</p>
+          <p>
+            Real‑time applications behave very differently from typical web apps. A normal React app
+            might fetch data once, store a few dozen items, and never grow beyond that.
+          </p>
 
-        <ul>
-          <li>The browser slows down</li>
-          <li>Garbage collection spikes</li>
-          <li>Memory usage explodes</li>
-          <li>Rendering becomes inconsistent</li>
-          <li>AG Grid and charts start choking</li>
-          <li>The UI becomes unresponsive</li>
-        </ul>
+          <p>A real‑time trading UI is the opposite:</p>
 
-        <p><strong>This is why unbounded arrays will kill the browser.</strong></p>
+          <ul>
+            <li>⚡ Trades stream in continuously</li>
+            <li>📈 Order books update dozens of times per second</li>
+            <li>🕒 Candles accumulate every minute</li>
+            <li>🖥️ The app stays open for hours — sometimes entire trading sessions</li>
+          </ul>
 
-        <hr />
+          <p>If you store every update forever, your arrays grow like this:</p>
 
-        <h2>🛠️ What Memory‑Bounded Arrays Actually Do</h2>
+          <ul>
+            <li>1 minute → 1,200 updates</li>
+            <li>1 hour → 72,000 updates</li>
+            <li>4 hours → 288,000 updates</li>
+            <li>8 hours → 576,000 updates</li>
+          </ul>
 
-        <p>A memory‑bounded array enforces a hard limit on how many items you keep.</p>
+          <p>
+            And that’s per currency pair. Track 10 pairs and you’re easily in the millions of
+            objects.
+          </p>
 
-        <pre>
+          <p>At that point:</p>
+
+          <ul>
+            <li>The browser slows down</li>
+            <li>Garbage collection spikes</li>
+            <li>Memory usage explodes</li>
+            <li>Rendering becomes inconsistent</li>
+            <li>AG Grid and charts start choking</li>
+            <li>The UI becomes unresponsive</li>
+          </ul>
+
+          <p><strong>This is why unbounded arrays will kill the browser.</strong></p>
+
+          <hr />
+
+          <h2>🛠️ What Memory‑Bounded Arrays Actually Do</h2>
+
+          <p>A memory‑bounded array enforces a hard limit on how many items you keep.</p>
+
+          <pre>
 const MAX_TRADES = 1000
 if (trades.length > MAX_TRADES) {
   // Immediate memory release
   trades.splice(0, trades.length - MAX_TRADES)
 }
-        </pre>
+        </pre
+          >
 
-        <p>This means:</p>
+          <p>This means:</p>
 
-        <ul>
-          <li>You always keep the latest 1000 trades</li>
-          <li>You never store more than 1000</li>
-          <li>Memory usage stays predictable</li>
-          <li>Rendering cost stays stable</li>
-          <li>The app behaves the same after 5 minutes or 5 hours</li>
-        </ul>
+          <ul>
+            <li>You always keep the latest 1000 trades</li>
+            <li>You never store more than 1000</li>
+            <li>Memory usage stays predictable</li>
+            <li>Rendering cost stays stable</li>
+            <li>The app behaves the same after 5 minutes or 5 hours</li>
+          </ul>
 
-        <p>This is the difference between a real‑time system and a demo app.</p>
+          <p>This is the difference between a real‑time system and a demo app.</p>
 
-        <hr />
+          <hr />
 
-        <h2>⚡ Why This Keeps the UI Responsive</h2>
+          <h2>⚡ Why This Keeps the UI Responsive</h2>
 
-        <h3>1. Rendering cost stays constant</h3>
-        <p>React, AG Grid, and Highcharts all scale poorly with huge arrays.</p>
+          <h3>1. Rendering cost stays constant</h3>
+          <p>React, AG Grid, and Highcharts all scale poorly with huge arrays.</p>
 
-        <p>Keeping arrays capped means:</p>
+          <p>Keeping arrays capped means:</p>
 
-        <ul>
-          <li>No exponential rendering cost</li>
-          <li>No slowdowns over time</li>
-          <li>No UI degradation after long sessions</li>
-        </ul>
+          <ul>
+            <li>No exponential rendering cost</li>
+            <li>No slowdowns over time</li>
+            <li>No UI degradation after long sessions</li>
+          </ul>
 
-        <h3>2. Memory usage stays flat</h3>
+          <h3>2. Memory usage stays flat</h3>
 
-        <p>Without limits, memory grows forever.
-          With limits, memory looks like this:</p>
+          <p>Without limits, memory grows forever. With limits, memory looks like this:</p>
 
-        <ul>
-          <li>Start → 50MB</li>
-          <li>1 hour → 55MB</li>
-          <li>8 hours → 60MB</li>
-        </ul>
+          <ul>
+            <li>Start → 50MB</li>
+            <li>1 hour → 55MB</li>
+            <li>8 hours → 60MB</li>
+          </ul>
 
-        <p>Instead of:</p>
+          <p>Instead of:</p>
 
-        <ul>
-          <li>Start → 50MB</li>
-          <li>1 hour → 200MB</li>
-          <li>8 hours → 1GB+ (browser crash)</li>
-        </ul>
+          <ul>
+            <li>Start → 50MB</li>
+            <li>1 hour → 200MB</li>
+            <li>8 hours → 1GB+ (browser crash)</li>
+          </ul>
 
-        <h3>3. Garbage collection stays predictable</h3>
-        <p>Large arrays create GC spikes that freeze the UI.
-          Bounded arrays avoid this entirely.</p>
+          <h3>3. Garbage collection stays predictable</h3>
+          <p>
+            Large arrays create GC spikes that freeze the UI. Bounded arrays avoid this entirely.
+          </p>
 
-        <h3>4. Charts and grids stay smooth</h3>
+          <h3>4. Charts and grids stay smooth</h3>
 
-        <p>Highcharts and AG Grid both struggle with large datasets.</p>
+          <p>Highcharts and AG Grid both struggle with large datasets.</p>
 
-        <p>Capping arrays ensures:</p>
+          <p>Capping arrays ensures:</p>
 
-        <ul>
-          <li>Smooth scrolling</li>
-          <li>Fast sorting</li>
-          <li>Stable FPS</li>
-          <li>No jank</li>
-        </ul>
+          <ul>
+            <li>Smooth scrolling</li>
+            <li>Fast sorting</li>
+            <li>Stable FPS</li>
+            <li>No jank</li>
+          </ul>
 
-        <h3>5. The app behaves the same after hours of use</h3>
+          <h3>5. The app behaves the same after hours of use</h3>
 
-        <p>A trading UI must be as fast at 4pm as it was at 9am.
-          Memory‑bounded arrays guarantee that.</p>
+          <p>
+            A trading UI must be as fast at 4pm as it was at 9am. Memory‑bounded arrays guarantee
+            that.
+          </p>
 
-        <hr />
+          <hr />
 
-        <h2>📏 The Principle Behind It</h2>
+          <h2>📏 The Principle Behind It</h2>
 
-        <p>Real‑time systems don’t need infinite history — they need the most recent, relevant data.</p>
+          <p>
+            Real‑time systems don’t need infinite history — they need the most recent, relevant
+            data.
+          </p>
 
-        <ul>
-          <li>Traders care about the last 1000 trades</li>
-          <li>Order books only need the current snapshot</li>
-          <li>Charts only need the last N candles</li>
-        </ul>
+          <ul>
+            <li>Traders care about the last 1000 trades</li>
+            <li>Order books only need the current snapshot</li>
+            <li>Charts only need the last N candles</li>
+          </ul>
 
-        <p>Everything else belongs in a backend database, not the browser.
-          Memory‑bounded arrays prevent real‑time UIs from degrading over time.</p>
+          <p>
+            Everything else belongs in a backend database, not the browser. Memory‑bounded arrays
+            prevent real‑time UIs from degrading over time.
+          </p>
 
-        <p><strong>Written by Ricardo Saumeth<br />
-            Senior Front‑End Engineer | Real‑Time UI Specialist</strong></p>
+          <p>
+            <strong
+              >Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Real‑Time UI Specialist</strong
+            >
+          </p>
 
-        <!-- Navigation Buttons -->
-        <ul class="actions special">
-          <li><a href="post-react-high-frequency-architecture.html" class="button">← Previous Post</a></li>
-          <li><a href="../blog.html" class="button">Back to Blog</a></li>
-        </ul>
-
-      </section>
-
-    </div>
-
-    <!-- Footer -->
-    <footer id="footer">
-      <section class="split contact">
-        <section>
-          <h3>Email</h3>
-          <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
-        </section>
-        <section>
-          <h3>Links</h3>
-          <ul class="icons alt">
-            <li><a href="https://github.com/ricardosaumeth" class="icon brands alt fa-github"></a></li>
-            <li><a href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/" class="icon brands alt fa-linkedin"></a>
+          <!-- Navigation Buttons -->
+          <ul class="actions special">
+            <li>
+              <a href="post-react-high-frequency-architecture.html" class="button"
+                >← Previous Post</a
+              >
             </li>
+            <li><a href="../blog.html" class="button">Back to Blog</a></li>
           </ul>
         </section>
-      </section>
-    </footer>
+      </div>
 
-    <div id="copyright">
-      <ul>
-        <li>© 2026 Ricardo Saumeth</li>
-        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-      </ul>
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:you@ricardosaumeth.com">you@ricardosaumeth.com</a></p>
+          </section>
+          <section>
+            <h3>Links</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="https://github.com/ricardosaumeth" class="icon brands alt fa-github"></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
+                  class="icon brands alt fa-linkedin"
+                ></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>© 2026 Ricardo Saumeth</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
     </div>
 
-  </div>
-
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="../assets/js/jquery.scrollex.min.js"></script>
-  <script src="../assets/js/jquery.scrolly.min.js"></script>
-  <script src="../assets/js/browser.min.js"></script>
-  <script src="../assets/js/breakpoints.min.js"></script>
-  <script src="../assets/js/util.js"></script>
-  <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/post-nav.js"></script>
-
-</body>
-
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
 </html>
