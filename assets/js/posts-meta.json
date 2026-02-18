@@ -1,0 +1,34 @@
+[
+  {
+    "id": "real-time-hard-problems",
+    "title": "The Hardest Problems in Real‑Time Front‑End Engineering",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Real‑time systems expose every weakness in your architecture. After a decade building trading dashboards and high‑frequency UIs, these are the five hardest problems engineers face — and the patterns that actually solve them.",
+    "file": "posts/post-real-time-hard-problems.html"
+  },
+  {
+    "id": "metrics-that-matter",
+    "title": "Three Metrics That Matter More Than Core Web Vitals in Trading Apps",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Core Web Vitals don't measure whether a trading app feels real‑time. These three metrics — data processing latency, connection health, and memory stability — determine whether users trust your UI during long, high‑frequency trading sessions.",
+    "file": "posts/post-metrics-that-matter.html"
+  },
+  {
+    "id": "react-high-frequency-architecture",
+    "title": "Building High‑Frequency React Architecture",
+    "date": "January 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "How to architect React applications that handle thousands of updates per second without dropping frames. Learn the scheduling patterns, batching strategies, and performance optimizations used in professional trading platforms.",
+    "file": "posts/post-react-high-frequency-architecture.html"
+  },
+  {
+    "id": "memory-bounded-arrays",
+    "title": "Memory‑Bounded Arrays: Managing Infinite Streams in Finite Memory",
+    "date": "January 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "When dealing with real‑time data streams, memory management becomes critical. Discover how memory‑bounded arrays prevent memory leaks while maintaining smooth UI performance in long‑running applications.",
+    "file": "posts/post-memory-bounded-arrays.html"
+  }
+]
