@@ -76,8 +76,34 @@
           </header>
 
           <h2>Get in Touch</h2>
+          <form method="POST" action="https://formspree.io/f/mreaypre">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="6" required></textarea>
+              </div>
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" class="primary" /></li>
+              <li><input type="reset" value="Clear" /></li>
+            </ul>
+          </form>
+
+          <h2>Or Connect Directly</h2>
           <ul class="actions">
-            <li><span class="button primary" style="text-transform: none;">hello@ricardosaumeth.com</span></li>
+            <li>
+              <span class="button primary" style="text-transform: none"
+                >hello@ricardosaumeth.com</span
+              >
+            </li>
             <li>
               <a
                 href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
