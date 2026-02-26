@@ -18,8 +18,9 @@ async function loadPosts() {
 function renderBlogPosts(page = 1) {
   const startIndex = (page - 1) * POSTS_PER_PAGE
   const endIndex = startIndex + POSTS_PER_PAGE
-  const postsToShow = allPosts.slice(startIndex, endIndex)
-  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE)
+  const postByNewest = allPosts.reverse()
+  const postsToShow = postByNewest.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(postByNewest.length / POSTS_PER_PAGE)
 
   const postsContainer = document.querySelector('.posts')
   postsContainer.innerHTML = ''

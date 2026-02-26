@@ -174,5 +174,13 @@
     "image": "images/crypto-app.png",
     "excerpt": "Most teams treat performance as an afterthought. In low‑latency trading systems, that mindset doesn't survive. Learn why latency is a UX problem, throughput beats micro‑optimizations, rendering is the bottleneck, and performance is architecture — not heroics.",
     "file": "posts/post-21-performance-is-feature.html"
+  },
+  {
+    "id": "multilingual-rag-system",
+    "title": "How I Built a Multilingual RAG System for Under $0.0005 per Question",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "The architecture behind a multilingual RAG system that costs almost nothing to run. Learn how self‑hosted embeddings, pgvector, GPT‑4o‑mini, and a unified design achieve ~$0.0003 per question without sacrificing quality.",
+    "file": "posts/post-22-multilingual-rag-system.html"
   }
 ]

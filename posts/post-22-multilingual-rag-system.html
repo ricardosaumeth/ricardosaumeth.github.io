@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      How I Built a Multilingual RAG System for Under $0.0005 per Question — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
+    <noscript>
+      <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../book.html">Book</a></li>
+          <li><a href="../course.html">Course</a></li>
+          <li><a href="../library.html">Real‑Time React</a></li>
+          <li class="active"><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="https://github.com/ricardosaumeth" class="icon brands fa-github"></a></li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/ricardo-saumeth-0baba982/"
+              class="icon brands fa-linkedin"
+            ></a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">February 2026</span>
+            <h1>How I Built a Multilingual RAG System for Under $0.0005 per Question</h1>
+          </header>
+
+          <p>
+            <strong
+              >The architecture behind a multilingual RAG system that costs almost nothing to
+              run</strong
+            >
+          </p>
+
+          <p>
+            When I started architecting my new project — a multilingual AI system built on top of a
+            RAG engine — I set myself a challenge:
+          </p>
+
+          <p>
+            <strong
+              >Could I design a production‑grade system that costs almost nothing per
+              question?</strong
+            >
+          </p>
+
+          <p>Most RAG stacks look like this:</p>
+          <ul>
+            <li>Paid embeddings</li>
+            <li>Paid vector database</li>
+            <li>GPT‑4 for everything</li>
+            <li>Multiple services stitched together</li>
+          </ul>
+
+          <p>It works, but it's expensive and unnecessarily complex for most use cases.</p>
+
+          <p>So I designed something different.</p>
+
+          <p>
+            <strong>A system that costs around $0.0003 per question.</strong>
+          </p>
+
+          <p>Here's the architecture.</p>
+
+          <hr />
+
+          <h2>1. Self‑Hosted Embeddings (cost: $0 per query — no per‑usage charges)</h2>
+          <p>I use a multilingual sentence‑transformers model:</p>
+          <ul>
+            <li>Runs locally</li>
+            <li>50–100ms per embedding</li>
+            <li>Smaller vectors → faster search</li>
+            <li>Zero marginal cost</li>
+            <li>Works offline</li>
+          </ul>
+
+          <p>And because questions repeat, I cache embeddings aggressively.</p>
+          <p>This eliminates all embedding‑related costs.</p>
+
+          <hr />
+
+          <h2>2. pgvector Instead of Pinecone/Qdrant (cost: $0)</h2>
+          <p>Everything lives inside Postgres using pgvector:</p>
+          <ul>
+            <li>Metadata</li>
+            <li>Vectors</li>
+            <li>Filtering</li>
+            <li>Similarity search</li>
+          </ul>
+
+          <p>
+            With an HNSW index, search takes 50–200ms for &lt;100K vectors — more than enough when
+            the LLM dominates latency.
+          </p>
+
+          <p>The real win is simplicity:</p>
+          <ul>
+            <li>One database</li>
+            <li>One backup</li>
+            <li>One deployment</li>
+            <li>No sync issues</li>
+            <li>No extra services</li>
+          </ul>
+
+          <hr />
+
+          <h2>3. GPT‑4o‑mini for Generation (~$0.00027–$0.00045 per question)</h2>
+          <p>This model is the sweet spot for grounded Q&A:</p>
+          <ul>
+            <li>Fast</li>
+            <li>Cheap</li>
+            <li>High enough quality</li>
+            <li>~200× cheaper than GPT‑4</li>
+          </ul>
+
+          <p>Optimized RAG queries typically use:</p>
+          <ul>
+            <li>~600 input tokens</li>
+            <li>~300 output tokens</li>
+          </ul>
+
+          <p>At GPT‑4o‑mini pricing, that's roughly:</p>
+          <p><strong>Around $0.00027 per question.</strong></p>
+
+          <p>Even with larger contexts (1000 input + 500 output), the cost stays:</p>
+          <p><strong>Under $0.0005 per question.</strong></p>
+
+          <hr />
+
+          <h2>4. A Minimal, Cost‑Efficient Architecture</h2>
+          <p>The system is intentionally lean:</p>
+          <ul>
+            <li>A small FastAPI backend</li>
+            <li>Postgres + pgvector</li>
+            <li>A lightweight cache</li>
+            <li>A static frontend</li>
+          </ul>
+
+          <p>
+            No GPUs.<br />
+            No heavy infra.<br />
+            No expensive managed services.
+          </p>
+
+          <p>Just a simple, unified design that scales smoothly.</p>
+
+          <hr />
+
+          <h2>Why This Architecture Works</h2>
+
+          <h3>Unification beats fragmentation</h3>
+          <p>One database. One embedding model. One LLM. One deployment.</p>
+          <p>Less complexity → fewer failure modes → lower cost.</p>
+
+          <h3>Caching is a superpower</h3>
+          <p>Most questions repeat.</p>
+          <p>Caching turns a multi‑second RAG pipeline into a 100ms lookup — for free.</p>
+
+          <h3>Choose the right LLM</h3>
+          <p>RAG doesn't need GPT‑4.</p>
+          <p>It needs a model that is fast, cheap, and good at following context.</p>
+          <p>GPT‑4o‑mini hits that balance perfectly.</p>
+
+          <h3>Multilingual without translation</h3>
+          <p>
+            Multilingual embeddings let the system avoid translation costs, latency, and errors.
+          </p>
+          <p>The model simply answers in the user's language.</p>
+
+          <hr />
+
+          <h2>When This Approach Makes Sense</h2>
+          <p><strong>Ideal when:</strong></p>
+          <ul>
+            <li>You have &lt;100K vectors</li>
+            <li>You want predictable costs</li>
+            <li>You want to avoid GPUs</li>
+            <li>You want a simple deployment</li>
+            <li>You want multilingual support</li>
+            <li>You want to scale gradually</li>
+          </ul>
+
+          <p><strong>Not ideal for:</strong></p>
+          <ul>
+            <li>Real‑time latency requirements</li>
+            <li>Multi‑hop reasoning</li>
+            <li>Massive vector datasets</li>
+          </ul>
+
+          <p>
+            But for most early‑stage products, it's the perfect balance of cost, simplicity, and
+            performance.
+          </p>
+
+          <hr />
+
+          <h2>The Bottom Line</h2>
+          <p><strong>You don't need:</strong></p>
+          <ul>
+            <li>Pinecone</li>
+            <li>GPT‑4</li>
+            <li>A GPU</li>
+            <li>A complex microservices architecture</li>
+          </ul>
+
+          <p><strong>You need:</strong></p>
+          <ul>
+            <li>pgvector</li>
+            <li>sentence‑transformers</li>
+            <li>GPT‑4o‑mini</li>
+            <li>A caching layer</li>
+            <li>A unified design</li>
+          </ul>
+
+          <p><strong>That's how you get to ~$0.0003 per question.</strong></p>
+
+          <p>And that's the architecture I'm building.</p>
+
+          <p>
+            <strong>
+              Written by Ricardo Saumeth<br />
+              Senior Front‑End Engineer | Systems Architect
+            </strong>
+          </p>
+
+          <!-- Navigation Buttons -->
+          <div id="post-navigation"></div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>
