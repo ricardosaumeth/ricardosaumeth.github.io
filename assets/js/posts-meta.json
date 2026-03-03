@@ -182,5 +182,13 @@
     "image": "images/crypto-app.png",
     "excerpt": "The architecture behind a multilingual RAG system that costs almost nothing to run. Learn how self‑hosted embeddings, pgvector, GPT‑4o‑mini, and a unified design achieve ~$0.0003 per question without sacrificing quality.",
     "file": "posts/post-22-multilingual-rag-system.html"
+  },
+  {
+    "id": "stale-state-detection",
+    "title": "Stale State Detection: The 20‑Second Rule That Saves Real‑Time Trading Apps",
+    "date": "February 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "The most dangerous failure mode in trading systems is a UI that looks correct but is actually dead. Learn why stale‑state detection is the foundation of correctness in real‑time apps.",
+    "file": "posts/post-23-stale-state-detection.html"
   }
 ]
