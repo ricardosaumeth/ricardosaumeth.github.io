@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      The Handler Pattern: How Senior Engineers Keep WebSocket Code Scalable — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" sizes="192x192" />
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <div data-component="nav" data-base-path="../"></div>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">March 2026</span>
+            <h1>The Handler Pattern:<br />How Senior Engineers Keep WebSocket Code Scalable</h1>
+          </header>
+
+          <p>Most WebSocket codebases start the same way: one <code>onmessage</code> callback, a few <code>if</code> statements… and before long you're staring at a 300‑line switch statement handling trades, tickers, books, candles, heartbeats — all in one place.</p>
+
+          <p>It works… until you need to test it, extend it, or debug it at 2am.</p>
+
+          <p>There's a better pattern.</p>
+
+          <hr />
+
+          <h2>The Real Problem</h2>
+
+          <p>WebSocket messages arrive as raw arrays or objects with minimal type information. The naive approach couples routing and processing in one giant function. That makes the code:</p>
+          <ul>
+            <li>Hard to test</li>
+            <li>Hard to extend</li>
+            <li>Hard to debug</li>
+            <li>Easy to break</li>
+          </ul>
+
+          <hr />
+
+          <h2>The Handler Pattern</h2>
+
+          <p>The idea is simple: <strong>separate routing from processing.</strong></p>
+
+          <h3>1. One handler per channel</h3>
+
+          <p>Each channel gets its own pure function — no WebSocket context, no global state, no side effects beyond dispatching.</p>
+
+          <pre><code>export const handleTradesData = (parsed, subscription, dispatch) => {
+  const currencyPair = subscription.request.symbol.slice(1)
+
+  if (Array.isArray(parsed[1])) {
+    const trades = parsed[1]
+      .sort((a, b) => b[1] - a[1])
+      .map(([id, ts, amount, price]) => ({ id, ts, amount, price }))
+    dispatch(tradesSnapshotReducer({ currencyPair, trades }))
+  } else {
+    const [id, ts, amount, price] = parsed[2]
+    dispatch(tradesUpdateReducer({ currencyPair, trade: { id, ts, amount, price } }))
+  }
+}</code></pre>
+
+          <p>Each handler has one job. Nothing more.</p>
+
+          <h3>2. A lookup map as the router</h3>
+
+          <p>The middleware doesn't need to know what a "trade" or "candle" is — it just picks the right handler.</p>
+
+          <pre><code>export const handlers = {
+  TRADES:  handleTradesData,
+  TICKER:  handleTickerData,
+  BOOK:    handleBookData,
+  CANDLES: handleCandlesData,
+}</code></pre>
+
+          <p>Adding a new channel becomes a two‑line change.</p>
+
+          <h3>3. A thin, predictable middleware</h3>
+
+          <p>The middleware handles cross‑cutting concerns (latency, stale detection, heartbeats) and delegates everything else.</p>
+
+          <pre><code>const handler = handlers[subscription.channel]
+if (!handler) return
+
+handler(parsedData, subscription, store.dispatch)</code></pre>
+
+          <hr />
+
+          <h2>Why This Matters</h2>
+
+          <p>Because now everything is testable in isolation:</p>
+
+          <pre><code>it('handles trades snapshot', () => {
+  const dispatch = vi.fn()
+  handleTradesData(mockData, mockSubscription, dispatch)
+  expect(dispatch).toHaveBeenCalled()
+})</code></pre>
+
+          <ul>
+            <li>No WebSocket server.</li>
+            <li>No Redux store.</li>
+            <li>No global state.</li>
+            <li>Just a function.</li>
+          </ul>
+
+          <hr />
+
+          <h2>The Takeaway</h2>
+
+          <p>This pattern is the Single Responsibility Principle applied at the architecture level:</p>
+          <ul>
+            <li>Middleware decides <em>when</em> to process</li>
+            <li>Handlers decide <em>how</em> to process</li>
+            <li>Adding features becomes additive, not destructive</li>
+            <li>Debugging becomes targeted, not chaotic</li>
+          </ul>
+
+          <p><strong>This is the difference between code that works and code that scales.</strong></p>
+
+          <hr />
+
+          <p><strong>Written by Ricardo Saumeth<br />Senior Front‑End Engineer | Real‑Time UI Specialist</strong></p>
+
+          <ul class="actions special"></ul>
+        </section>
+      </div>
+
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>

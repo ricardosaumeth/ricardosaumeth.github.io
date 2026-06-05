@@ -190,5 +190,21 @@
     "image": "images/crypto-app.png",
     "excerpt": "The most dangerous failure mode in trading systems is a UI that looks correct but is actually dead. Learn why stale‑state detection is the foundation of correctness in real‑time apps.",
     "file": "posts/post-23-stale-state-detection.html"
+  },
+  {
+    "id": "handler-pattern",
+    "title": "The Handler Pattern: How Senior Engineers Keep WebSocket Code Scalable",
+    "date": "March 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Most WebSocket codebases collapse into a 300‑line switch statement. The Handler Pattern separates routing from processing — giving you one pure function per channel, a lookup map as the router, and a thin middleware that delegates everything else. The result: testable, extensible, debuggable code.",
+    "file": "posts/post-24-handler-pattern.html"
+  },
+  {
+    "id": "order-book-batching",
+    "title": "The 50ms Rule: How Order Book Batching Saves AG Grid From Performance Hell",
+    "date": "March 2026",
+    "image": "images/crypto-app.png",
+    "excerpt": "Trading dashboards freeze the moment markets get volatile — because high‑frequency WebSocket updates overwhelm AG Grid. The fix is one simple rule: batch updates every 50ms. Here's why it works and how to implement it.",
+    "file": "posts/post-25-order-book-batching.html"
   }
 ]

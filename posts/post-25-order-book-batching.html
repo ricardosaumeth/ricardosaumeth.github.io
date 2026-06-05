@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      The 50ms Rule: How Order Book Batching Saves AG Grid From Performance Hell — Ricardo Saumeth
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" sizes="192x192" />
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header">
+        <a href="../index.html" class="logo">Ricardo Saumeth</a>
+      </header>
+
+      <div data-component="nav" data-base-path="../"></div>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <span class="date">March 2026</span>
+            <h1>The 50ms Rule:<br />How Order Book Batching Saves AG Grid From Performance Hell</h1>
+          </header>
+
+          <p>Why do trading dashboards freeze the moment markets get volatile?</p>
+
+          <p>I hit this exact wall building a real‑time crypto app with AG Grid — and the fix came down to one simple rule:</p>
+
+          <p><strong>Batch updates every 50ms.</strong></p>
+
+          <hr />
+
+          <h2>The Problem</h2>
+
+          <p>A live order book from the Bitfinex WebSocket API v2 can fire dozens of updates per second during volatility. If you naïvely dispatch every message:</p>
+          <ul>
+            <li>Redux fires constantly</li>
+            <li>React re-renders constantly</li>
+            <li>AG Grid tries to reconcile rows constantly</li>
+          </ul>
+
+          <p>AG Grid is fast — but not "hundreds of DOM updates per second" fast. The result:</p>
+          <ul>
+            <li>Frozen UI</li>
+            <li>Dropped frames</li>
+            <li>A dashboard that feels like a slideshow</li>
+          </ul>
+
+          <hr />
+
+          <h2>The 50ms Rule</h2>
+
+          <p>Instead of dispatching every update, we buffer them and flush once every 50ms. That's ~20 updates per second. Smooth. Stable. Still "real‑time" to the human eye.</p>
+
+          <pre><code>let buffer: BookUpdate[] = []
+
+setInterval(() => {
+  if (buffer.length === 0) return
+  dispatch(bookBatchUpdateReducer(buffer))
+  buffer = []
+}, 50)</code></pre>
+
+          <p>AG Grid now processes one batch per cycle, not fifty individual transactions. FPS stays high. The UI stays responsive.</p>
+
+          <hr />
+
+          <h2>Why 50ms?</h2>
+
+          <p>Human perception of "instant" is ~100ms. At 50ms:</p>
+          <ul>
+            <li>Feels real‑time</li>
+            <li>Cuts render load by an order of magnitude</li>
+            <li>Avoids thrashing the grid</li>
+          </ul>
+
+          <p>Go lower (10ms) → you're back to choking the main thread.<br />
+          Go higher (200ms) → the order book feels sluggish.</p>
+
+          <p><strong>50ms is the sweet spot.</strong></p>
+
+          <hr />
+
+          <h2>The Broader Lesson</h2>
+
+          <p>High‑frequency data doesn't care about your render budget. <strong>You have to enforce one.</strong></p>
+
+          <p>Batching applies to:</p>
+          <ul>
+            <li>Live sports feeds</li>
+            <li>IoT telemetry</li>
+            <li>Logistics tracking</li>
+            <li>Any system where data outpaces UI capacity</li>
+          </ul>
+
+          <p>AG Grid is powerful, but it still lives on the main thread. Respect that, and your UI will thank you.</p>
+
+          <p>Building this in my React 19 + Redux Toolkit crypto project taught me more about browser performance than any tutorial ever could.</p>
+
+          <hr />
+
+          <p><strong>Written by Ricardo Saumeth<br />Senior Front‑End Engineer | Real‑Time UI Specialist</strong></p>
+
+          <ul class="actions special"></ul>
+        </section>
+      </div>
+
+      <div data-component="footer" data-base-path="../"></div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/post-nav.js"></script>
+  </body>
+</html>
